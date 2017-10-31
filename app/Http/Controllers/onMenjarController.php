@@ -40,10 +40,20 @@ class onMenjarController extends Controller
     public function onMenjarpost(Request $request)
     {
         //TODO Validar formulari
+
+        //separem camp fitxer
+        $file = $request->file('file');
+
+        //obtenir nom
+        $nom = $file->getClientOriginalName();
+
+        //Guardat imatge en local
+        \Storage::disk('local')->put($nom,  \File::get($file));
+
+
         $json = $request->input();
         $datos = json_decode(json_encode($json), true);
-        //echo $datos;
-        //return implode(",",$request->Items);
+        //Preparació dades bbdd
         $nouRestaurant = collect([
             'nom' => $datos["nomestabliment"],
             'telefon' => $datos["telefon"],
@@ -52,14 +62,15 @@ class onMenjarController extends Controller
             'horariMigdia' => $datos["horariMigdia"],
             'horariNit' => $datos["horariNit"],
             'items' => implode(",",$request->Items),
-            'imatge' => $datos["file"]
+            'imatge' => $nom
         ]);
+
         $Restaurant = new Restaurant();
         //insertar nou restaurant
         //TODO falta configurar resposta necessaria
         if($Restaurant->insertRestaurant($nouRestaurant)==true)
         {
-            return "Ok";
+            return view('onMenjar/onMenjaradd');
         };
 
 

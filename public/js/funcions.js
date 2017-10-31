@@ -71,8 +71,8 @@ jQuery(document).ready(function ($) {
             }
 
 
-            });*/
-    });
+            });
+    });*/
 
     // Funio de previsualització de la imatge
     $(function() {

@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form action="post"  method="POST">
+                    <form action="post"  method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group" id="form">
 
@@ -75,7 +75,6 @@
                                     </form>
                                 </div>
                                 <div id="message"></div>
-                                <h4 id='loading' >loading..</h4>
                                 <label id="Alta" class="col-xs-16 col-lg-pull-1">
                                     <button type="submit" class="btn btn-primary" >
                                         <i class="glyphicon glyphicon-send"> Enviar </i>
