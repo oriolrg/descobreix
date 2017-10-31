@@ -18,9 +18,9 @@ class CreateRestaurantsTable extends Migration
             $table->string('nom');
             $table->integer('telefon');
             $table->string('preu');
-            $table->string('horariMati');
-            $table->string('horariMigdia');
+            $table->string('horariDia');
             $table->string('horariNit');
+            //$table->string('horariNit');
             $table->string('items');
             $table->string('imatgePrincipal');
             $table->string('imatgeSecundaria');

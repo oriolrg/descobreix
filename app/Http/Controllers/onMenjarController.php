@@ -62,9 +62,9 @@ class onMenjarController extends Controller
             'nom' => $datos["nomestabliment"],
             'telefon' => $datos["telefon"],
             'preuMitja' => $datos["preumig"],
-            'horariMati' => $datos["horariMati"],
-            'horariMigdia' => $datos["horariMigdia"],
-            'horariNit' => $datos["horariNit"],
+            'horariDia' => $datos["horariDiaDe"].$datos["horariDiaA"],
+            'horariNit' => $datos["horariNitDe"].$datos["horariNitA"],
+            //'horariNit' => $datos["horariNitDe"].$datos["horariNitA"],
             'items' => implode(",",$request->Items),
             'imatge1' => $nomprincipal,
             'imatge2' => $nomsecundari

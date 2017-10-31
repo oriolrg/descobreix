@@ -19,33 +19,60 @@
 
                             <legend>Dades generals</legend>
                             <label for="nomestabliment" class="control-label col-md-3">Nom establiment</label>
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 <input type="text" name="nomestabliment" id="nomestabliment" class="form-control">
                             </div>
                             <label for="telefon" class="control-label col-md-3">Telefon establiment</label>
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 <input type="text" name="telefon" id="telefon" class="form-control">
                             </div>
                             <label for="preumig" class="control-label col-md-3">Preu mitja</label>
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                               <select name="preumig" id=preumig">
                                   <option value="deu_i_quinze">10€ - 15 €</option>
                                   <option value="quinze_vinticinc">15€ - 25 €</option>
                                   <option value="mes_vinticinc">+25 €</option>
                               </select>
                             </div>
-                            <label for="titol" class="control-label col-md-12">Horari obertura</label>
-                            <label for="horariMati" class="control-label col-md-3">Matí</label>
+                            <legend>Horari obertura cuina</legend>
+                            <label for="horariDia" class="control-label col-md-3">Dia</label>
                             <div class="col-md-8">
-                                <input type="time" name="horariMati" id="horariMati">
-                            </div>
-                            <label for="horariMigdia" class="control-label col-md-3">Migdia</label>
-                            <div class="col-md-8">
-                                <input type="time" name="horariMigdia" id="horariMigdia">
+                                <strong>de </strong>
+                                <!--TODO arreglar formulari-->
+                                <select name="horariDiaDe" id=horariDiaDe">
+                                    <option value="10">10h</option>
+                                    <option value="11">11h</option>
+                                    <option value="12">12h</option>
+                                    <option value="13">13h</option>
+                                </select>
+                                <strong>a </strong>
+                                <!--TODO arreglar formulari-->
+                                <select name="horariDiaA" id=horariDiaA">
+                                    <option value="13">13h</option>
+                                    <option value="14">14h</option>
+                                    <option value="15">15h</option>
+                                    <option value="16">16h</option>
+                                    <option value="16">17h</option>
+                                </select>
                             </div>
                             <label for="horariNit" class="control-label col-md-3">Nit</label>
                             <div class="col-md-8">
-                                <input type="time" name="horariNit" id="horariNit">
+                                <strong>de </strong>
+                                <!--TODO arreglar formulari-->
+                                <select name="horariNitDe"preumig id=horariNitDe">
+                                    <option value="17">17h</option>
+                                    <option value="18">18h</option>
+                                    <option value="19">19h</option>
+                                    <option value="20">20h</option>
+                                </select>
+                                <strong>a </strong>
+                                <!--TODO arreglar formulari-->
+                                <select name="horariNitA" id=horariNitA">
+                                    <option value="21">21h</option>
+                                    <option value="22">22h</option>
+                                    <option value="23">23h</option>
+                                    <option value="00">00h</option>
+                                </select>
                             </div>
                             <legend>Checklist</legend>
                             <label for="Items" class="control-label col-md-3">Items</label>
