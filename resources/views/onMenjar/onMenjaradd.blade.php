@@ -61,27 +61,39 @@
                                     <input type="checkbox" name="Items[9]" value="Terrasa" />Terrasa<br />
                                     <input type="checkbox" name="Items[10]" value="Zona d’esbarjo" />Zona d’esbarjo<br />
                             </div>
-                            <div id="selectImage">
-                                <div class="main">
-                                    <h1>Imatge principal</h1><br/>
-                                    <hr>
-                                    <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
-                                        <div id="image_preview"><img id="previewing" src="{{ url('/') }}/imatges/noimage.png" /></div>
-                                        <hr id="line">
-                                        <div id="selectImage">
-                                            <label>Selecciona la imatge</label><br/>
-                                            <input type="file" name="file" id="file" required />
+                            <legend>Imatges</legend>
+                            <form id="uploadimage1" action="" method="post" enctype="multipart/form-data">
+                                <div id="selectImage">
+                                    <div class="main" class="col-md-8 col-md-offset-2">
+                                        <div class="col-md-6">
+                                            <label>Selecciona la imatge pàgina principal</label><br/>
+                                                <div id="image_preview1"><img id="previewing1" src="{{ url('/') }}/imatges/noimage.png" /></div>
+                                                <hr id="line">
+                                                <div id="message1"></div>
+                                                <div id="selectImage">
+                                                    <label>Selecciona la imatge</label><br/>
+                                                    <input type="file" name="file1" id="file1" required />
+                                                </div>
                                         </div>
-                                    </form>
-                                </div>
-                                <div id="message"></div>
-                                <label id="Alta" class="col-xs-16 col-lg-pull-1">
-                                    <button type="submit" class="btn btn-primary" >
-                                        <i class="glyphicon glyphicon-send"> Enviar </i>
-                                    </button>
-                                </label>
-                            </div>
 
+                                        <div class="col-md-6">
+                                            <label>Selecciona la imatge pàgina secundària</label><br/>
+                                                <div id="image_preview2"><img id="previewing2" src="{{ url('/') }}/imatges/noimage.png" /></div>
+                                                <hr id="line">
+                                                <div id="message2"></div>
+                                                <div id="selectImage">
+                                                    <label>Selecciona la imatge</label><br/>
+                                                    <input type="file" name="file2" id="file2" required />
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <legend>Envia el formulari</legend>
+                                <button type="submit" class="btn btn-primary" >
+                                    <i class="glyphicon glyphicon-send"> Enviar </i>
+                                </button>
                         </div>
                     </form>
             </div>

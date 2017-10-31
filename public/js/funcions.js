@@ -76,32 +76,58 @@ jQuery(document).ready(function ($) {
 
     // Funio de previsualització de la imatge
     $(function() {
-        $("#file").change(function() {
-            $("#message").empty(); // To remove the previous error message
+        $("#file1").change(function() {
+            $("#message1").empty(); // To remove the previous error message
             var file = this.files[0];
             var imagefile = file.type;
             var match= ["image/jpeg","image/png","image/jpg"];
             if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2])))
             {
-                $('#previewing').attr('src','noimage.png');
-                $("#message").html("<p id='error'>Selecciona una imatge valida</p>"+"<h4>Important</h4>"+"<span id='error_message'>Només s'accepten formats jpeg, jpg and png</span>");
+                $('#previewing1').attr('src','noimage.png');
+                $("#message1").html("<p id='error'>Selecciona una imatge valida</p>"+"<h4>Important</h4>"+"<span id='error_message'>Només s'accepten formats jpeg, jpg and png</span>");
                 return false;
             }
             else
             {
                 var reader = new FileReader();
-                reader.onload = imageIsLoaded;
+                reader.onload = imageIsLoaded1;
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        $("#file2").change(function() {
+            $("#message2").empty(); // To remove the previous error message
+            var file = this.files[0];
+            var imagefile = file.type;
+            var match= ["image/jpeg","image/png","image/jpg"];
+            if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2])))
+            {
+                $('#previewing2').attr('src','noimage.png');
+                $("#message2").html("<p id='error'>Selecciona una imatge valida</p>"+"<h4>Important</h4>"+"<span id='error_message'>Només s'accepten formats jpeg, jpg and png</span>");
+                return false;
+            }
+            else
+            {
+                var reader = new FileReader();
+                reader.onload = imageIsLoaded2;
                 reader.readAsDataURL(this.files[0]);
             }
         });
     });
-    function imageIsLoaded(e) {
-        $("#file").css("color","green");
-        $('#image_preview').css("display", "block");
-        $('#previewing').attr('src', e.target.result);
-        $('#previewing').attr('width', '250px');
-        $('#previewing').attr('height', '230px');
+    function imageIsLoaded1(e) {
+        $("#file1").css("color","green");
+        $('#image_preview1').css("display", "block");
+        $('#previewing1').attr('src', e.target.result);
+        $('#previewing1').attr('width', '250px');
+        $('#previewing1').attr('height', '230px');
     };
+    function imageIsLoaded2(e) {
+        $("#file2").css("color","green");
+        $('#image_preview2').css("display", "block");
+        $('#previewing2').attr('src', e.target.result);
+        $('#previewing2').attr('width', '250px');
+        $('#previewing2').attr('height', '230px');
+    };
+
 
 
 });

@@ -20,7 +20,8 @@ class Restaurant extends Model
         $this->horariMigdia = $nouRestaurant->get('horariMigdia');
         $this->horariNit = $nouRestaurant->get('horariNit');
         $this->items = $nouRestaurant->get('items');
-        $this->imatgePrincipal = $nouRestaurant->get('imatge');
+        $this->imatgePrincipal = $nouRestaurant->get('imatge1');
+        $this->imatgeSecundaria = $nouRestaurant->get('imatge2');
         $this->save();
         return True;
     }

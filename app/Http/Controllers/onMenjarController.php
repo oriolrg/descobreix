@@ -42,13 +42,17 @@ class onMenjarController extends Controller
         //TODO Validar formulari
 
         //separem camp fitxer
-        $file = $request->file('file');
+        //return $request;
+        $fileprincipal = $request->file('file1');
+        $filesecundari = $request->file('file2');
 
-        //obtenir nom
-        $nom = $file->getClientOriginalName();
+        //obtenir nom imatge principal i secundaria
+        $nomprincipal = $fileprincipal->getClientOriginalName();
+        $nomsecundari = $filesecundari->getClientOriginalName();
 
-        //Guardat imatge en local
-        \Storage::disk('local')->put($nom,  \File::get($file));
+        //Guardat imatges en local
+        \Storage::disk('local')->put($nomprincipal,  \File::get($fileprincipal));
+        \Storage::disk('local')->put($nomsecundari,  \File::get($filesecundari));
 
 
         $json = $request->input();
@@ -62,7 +66,8 @@ class onMenjarController extends Controller
             'horariMigdia' => $datos["horariMigdia"],
             'horariNit' => $datos["horariNit"],
             'items' => implode(",",$request->Items),
-            'imatge' => $nom
+            'imatge1' => $nomprincipal,
+            'imatge2' => $nomsecundari
         ]);
 
         $Restaurant = new Restaurant();
