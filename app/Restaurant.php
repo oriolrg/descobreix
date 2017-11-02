@@ -15,6 +15,8 @@ class Restaurant extends Model
         //return $nouRestaurant->get('nom');
         $this->nom = $nouRestaurant->get('nom');
         $this->telefon = $nouRestaurant->get('telefon');
+        $this->direccio = $nouRestaurant->get('direccio');
+        $this->poblacio = $nouRestaurant->get('poblacio');
         $this->preu = $nouRestaurant->get('preuMitja');
         $this->horariDia = $nouRestaurant->get('horariDia');
         $this->horariNit = $nouRestaurant->get('horariNit');

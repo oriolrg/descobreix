@@ -61,6 +61,8 @@ class onMenjarController extends Controller
         $nouRestaurant = collect([
             'nom' => $datos["nomestabliment"],
             'telefon' => $datos["telefon"],
+            'direccio' => $datos["direccio"],
+            'poblacio' => $datos["poblacio"],
             'preuMitja' => $datos["preumig"],
             'horariDia' => $datos["horariDiaDe"].$datos["horariDiaA"],
             'horariNit' => $datos["horariNitDe"].$datos["horariNitA"],

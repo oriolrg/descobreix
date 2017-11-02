@@ -26,6 +26,14 @@
                             <div class="col-md-9">
                                 <input type="text" name="telefon" id="telefon" class="form-control">
                             </div>
+                            <label for="direccio" class="control-label col-md-3">Direcció</label>
+                            <div class="col-md-9">
+                                <input type="text" name="direccio" id="direccio" class="form-control">
+                            </div>
+                            <label for="poblacio" class="control-label col-md-3">Poblacio</label>
+                            <div class="col-md-9">
+                                <input type="text" name="poblacio" id="poblacio" class="form-control">
+                            </div>
                             <label for="preumig" class="control-label col-md-3">Preu mitja</label>
                             <div class="col-md-9">
                               <select name="preumig" id=preumig">

@@ -17,6 +17,8 @@ class CreateRestaurantsTable extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->integer('telefon');
+            $table->string('direccio');
+            $table->string('poblacio');
             $table->string('preu');
             $table->string('horariDia');
             $table->string('horariNit');
