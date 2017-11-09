@@ -1,5 +1,6 @@
 <?php
-
+use App\Restaurant;
+use App\Http\Resources\Restaurants;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*Route::get('/restaurant/{lat}', function () {
+    return new Restaurants(Restaurant::all());
+});*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -25,3 +28,4 @@ Route::get('/onmenjar/add', 'onMenjarController@onMenjaradd')->name('onMenjaradd
 Route::post('/onmenjar/post', 'onMenjarController@onMenjarpost')->name('onMenjarpost');
 Route::get('/onmenjar/dell', 'onMenjarController@onMenjardell')->name('onMenjardell');
 Route::get('/onmenjar/mod', 'onMenjarController@onMenjarmod')->name('onMenjarmod');
+Route::get('/restaurant', 'proveidorRestaurantController@proveidor')->name('proveidorRestaurantController@proveidor');
