@@ -102,25 +102,36 @@
                                     <div class="main" class="col-md-8 col-md-offset-2">
                                         <div class="col-md-6">
                                             <label>Selecciona la imatge pàgina principal</label><br/>
-                                                <div id="image_preview1"><img id="previewing1" src="{{ url('/') }}/imatges/noimage.png" /></div>
-                                                <hr id="line">
                                                 <div id="message1"></div>
                                                 <div id="selectImage">
-                                                    <label>Selecciona la imatge</label><br/>
-                                                    <input type="file" name="file1" id="file1" required />
+                                                	<label>
+							<strong>Mides recomanades: </strong>
+							<ul>
+								<li>550px x 340px</li> 
+								<li>Màxim 50 kb</li>
+							</ul>
+							</label>
+                                                   <input type="file" name="file1" id="file1" required />
                                                 </div>
+						<hr id="line">
+						<div id="image_preview1"><img id="previewing1" src="{{ url('/') }}/imatges/noimage.png" /></div>
                                         </div>
 
                                         <div class="col-md-6">
                                             <label>Selecciona la imatge pàgina secundària</label><br/>
-                                                <div id="image_preview2"><img id="previewing2" src="{{ url('/') }}/imatges/noimage.png" /></div>
-                                                <hr id="line">
                                                 <div id="message2"></div>
                                                 <div id="selectImage">
-                                                    <label>Selecciona la imatge</label><br/>
+                                                    	<label>
+							<strong>Mides recomanades: </strong>
+							<ul>
+								<li>550px x 340px</li> 
+								<li>Màxim 50 kb</li>
+							</ul>
+							</label>
                                                     <input type="file" name="file2" id="file2" required />
                                                 </div>
-
+						<hr id="line">
+						<div id="image_preview2"><img id="previewing2" src="{{ url('/') }}/imatges/noimage.png" /></div>
                                         </div>
                                     </div>
                                 </div>
