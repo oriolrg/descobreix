@@ -36,10 +36,10 @@
                             </div>
                             <label for="preumig" class="control-label col-md-3">Preu mitja</label>
                             <div class="col-md-9">
-                              <select name="preumig" id=preumig">
-                                  <option value="deu_i_quinze">10€ - 15 €</option>
-                                  <option value="quinze_vinticinc">15€ - 25 €</option>
-                                  <option value="mes_vinticinc">+25 €</option>
+                              <select name="preumig" id="preumig">
+                                  <option value="10 - 15">10€ - 15 €</option>
+                                  <option value="15 - 25">15€ - 25 €</option>
+                                  <option value="+25">+25 €</option>
                               </select>
                             </div>
                             <legend>Horari obertura cuina</legend>
@@ -47,39 +47,39 @@
                             <div class="col-md-8">
                                 <strong>de </strong>
                                 <!--TODO arreglar formulari-->
-                                <select name="horariDiaDe" id=horariDiaDe">
-                                    <option value="10">10h</option>
-                                    <option value="11">11h</option>
-                                    <option value="12">12h</option>
-                                    <option value="13">13h</option>
+                                <select name="horariDiaDe" id="horariDiaDe">
+                                    <option value="10h">10h</option>
+                                    <option value="11h">11h</option>
+                                    <option value="12h">12h</option>
+                                    <option value="13h">13h</option>
                                 </select>
                                 <strong>a </strong>
                                 <!--TODO arreglar formulari-->
-                                <select name="horariDiaA" id=horariDiaA">
-                                    <option value="13">13h</option>
-                                    <option value="14">14h</option>
-                                    <option value="15">15h</option>
-                                    <option value="16">16h</option>
-                                    <option value="16">17h</option>
+                                <select name="horariDiaA" id="horariDiaA">
+                                    <option value="13h">13h</option>
+                                    <option value="14h">14h</option>
+                                    <option value="15h">15h</option>
+                                    <option value="16h">16h</option>
+                                    <option value="17h">17h</option>
                                 </select>
                             </div>
                             <label for="horariNit" class="control-label col-md-3">Nit</label>
                             <div class="col-md-8">
                                 <strong>de </strong>
                                 <!--TODO arreglar formulari-->
-                                <select name="horariNitDe"preumig id=horariNitDe">
-                                    <option value="17">17h</option>
-                                    <option value="18">18h</option>
-                                    <option value="19">19h</option>
-                                    <option value="20">20h</option>
+                                <select name="horariNitDe"preumig id="horariNitDe">
+                                    <option value="17h">17h</option>
+                                    <option value="18h">18h</option>
+                                    <option value="19h">19h</option>
+                                    <option value="20h">20h</option>
                                 </select>
                                 <strong>a </strong>
                                 <!--TODO arreglar formulari-->
-                                <select name="horariNitA" id=horariNitA">
-                                    <option value="21">21h</option>
-                                    <option value="22">22h</option>
-                                    <option value="23">23h</option>
-                                    <option value="00">00h</option>
+                                <select name="horariNitA" id="horariNitA">
+                                    <option value="21h">21h</option>
+                                    <option value="22h">22h</option>
+                                    <option value="23h">23h</option>
+                                    <option value="00h">00h</option>
                                 </select>
                             </div>
                             <legend>Checklist</legend>
@@ -107,7 +107,7 @@
                                                 	<label>
 							<strong>Mides recomanades: </strong>
 							<ul>
-								<li>550px x 340px</li> 
+								<li>550px x 340px</li>
 								<li>Màxim 50 kb</li>
 							</ul>
 							</label>
@@ -124,7 +124,7 @@
                                                     	<label>
 							<strong>Mides recomanades: </strong>
 							<ul>
-								<li>550px x 340px</li> 
+								<li>550px x 340px</li>
 								<li>Màxim 50 kb</li>
 							</ul>
 							</label>
