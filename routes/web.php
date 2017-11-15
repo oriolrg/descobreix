@@ -29,3 +29,4 @@ Route::post('/onmenjar/post', 'onMenjarController@onMenjarpost')->name('onMenjar
 Route::get('/onmenjar/dell', 'onMenjarController@onMenjardell')->name('onMenjardell');
 Route::get('/onmenjar/mod', 'onMenjarController@onMenjarmod')->name('onMenjarmod');
 Route::get('/restaurant', 'proveidorRestaurantController@proveidor')->name('proveidorRestaurantController@proveidor');
+Route::get('/restaurant/item/{item}', 'proveidorRestaurantController@proveidorItem')->name('proveidorRestaurantController@proveidorItem');

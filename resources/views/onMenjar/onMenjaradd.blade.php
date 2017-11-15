@@ -42,25 +42,38 @@
                                   <option value="+25">+25 €</option>
                               </select>
                             </div>
+                            <legend>Dies obertura</legend>
+                            <label for="diesObertura" class="control-label col-md-3"></label>
+                            <div class="col-md-12">
+                                    <input type="checkbox" name="Dies[1]" value="dilluns" />Dilluns<br />
+                                    <input type="checkbox" name="Dies[2]" value="dimarts" />Dimarts<br />
+                                    <input type="checkbox" name="Dies[3]" value="dimecres" />Dimecres<br />
+                                    <input type="checkbox" name="Dies[4]" value="dijous" />Dijous<br />
+                                    <input type="checkbox" name="Dies[5]" value="divendres" />Divendres<br />
+                                    <input type="checkbox" name="Dies[6]" value="dissabte" />Dissabte<br />
+                                    <input type="checkbox" name="Dies[7]" value="diumenge" />Diumenge<br />
+                            </div>
+
+
                             <legend>Horari obertura cuina</legend>
                             <label for="horariDia" class="control-label col-md-3">Dia</label>
                             <div class="col-md-8">
                                 <strong>de </strong>
                                 <!--TODO arreglar formulari-->
                                 <select name="horariDiaDe" id="horariDiaDe">
-                                    <option value="10h">10h</option>
-                                    <option value="11h">11h</option>
-                                    <option value="12h">12h</option>
-                                    <option value="13h">13h</option>
+                                    <option value="10">10h</option>
+                                    <option value="11">11h</option>
+                                    <option value="12">12h</option>
+                                    <option value="13">13h</option>
                                 </select>
                                 <strong>a </strong>
                                 <!--TODO arreglar formulari-->
                                 <select name="horariDiaA" id="horariDiaA">
-                                    <option value="13h">13h</option>
-                                    <option value="14h">14h</option>
-                                    <option value="15h">15h</option>
-                                    <option value="16h">16h</option>
-                                    <option value="17h">17h</option>
+                                    <option value="13">13h</option>
+                                    <option value="14">14h</option>
+                                    <option value="15">15h</option>
+                                    <option value="16">16h</option>
+                                    <option value="17">17h</option>
                                 </select>
                             </div>
                             <label for="horariNit" class="control-label col-md-3">Nit</label>
@@ -68,33 +81,33 @@
                                 <strong>de </strong>
                                 <!--TODO arreglar formulari-->
                                 <select name="horariNitDe"preumig id="horariNitDe">
-                                    <option value="17h">17h</option>
-                                    <option value="18h">18h</option>
-                                    <option value="19h">19h</option>
-                                    <option value="20h">20h</option>
+                                    <option value="17">17h</option>
+                                    <option value="18">18h</option>
+                                    <option value="19">19h</option>
+                                    <option value="20">20h</option>
                                 </select>
                                 <strong>a </strong>
                                 <!--TODO arreglar formulari-->
                                 <select name="horariNitA" id="horariNitA">
-                                    <option value="21h">21h</option>
-                                    <option value="22h">22h</option>
-                                    <option value="23h">23h</option>
-                                    <option value="00h">00h</option>
+                                    <option value="21">21h</option>
+                                    <option value="22">22h</option>
+                                    <option value="23">23h</option>
+                                    <option value="00">00h</option>
                                 </select>
                             </div>
                             <legend>Checklist</legend>
                             <label for="Items" class="control-label col-md-3">Items</label>
                             <div class="col-md-8">
                                     <input type="checkbox" name="Items[1]" value="Menu" />Menu<br />
-                                    <input type="checkbox" name="Items[2]" value="Menu infantil" />Menu infantil<br />
+                                    <input type="checkbox" name="Items[2]" value="MenuInfantil" />Menu infantil<br />
                                     <input type="checkbox" name="Items[3]" value="Carta" />Carta<br />
-                                    <input type="checkbox" name="Items[4]" value="Cuïna catalana" />Cuïna catalana<br />
+                                    <input type="checkbox" name="Items[4]" value="CuinaCatalana" />Cuïna catalana<br />
                                     <input type="checkbox" name="Items[5]" value="Pizza" />Pizza<br />
-                                    <input type="checkbox" name="Items[6]" value="Plats combinats" />Plats combinats<br />
+                                    <input type="checkbox" name="Items[6]" value="PlatsCombinats" />Plats combinats<br />
                                     <input type="checkbox" name="Items[7]" value="Entrepans" />Entrepans<br />
-                                    <input type="checkbox" name="Items[8]" value="Apte pels celíacs" />Apte pels celíacs<br />
+                                    <input type="checkbox" name="Items[8]" value="ApteCeliacs" />Apte pels celíacs<br />
                                     <input type="checkbox" name="Items[9]" value="Terrasa" />Terrasa<br />
-                                    <input type="checkbox" name="Items[10]" value="Zona d’esbarjo" />Zona d’esbarjo<br />
+                                    <input type="checkbox" name="Items[10]" value="ZonaEsbarjo" />Zona d’esbarjo<br />
                             </div>
                             <legend>Imatges</legend>
                             <form id="uploadimage1" action="" method="post" enctype="multipart/form-data">

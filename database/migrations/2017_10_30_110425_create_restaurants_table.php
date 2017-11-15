@@ -20,10 +20,11 @@ class CreateRestaurantsTable extends Migration
             $table->string('direccio');
             $table->string('poblacio');
             $table->string('preu');
-            $table->string('horariDia');
-            $table->string('horariNit');
-            //$table->string('horariNit');
-            $table->string('items');
+            $table->integer('obertura_dia');
+            $table->integer('tancament_dia');
+            $table->integer('obertura_nit');
+            $table->integer('tancament_nit');
+            $table->boolean('actiu')->default(True);
             $table->string('imatgePrincipal');
             $table->string('imatgeSecundaria');
             $table->timestamps();
