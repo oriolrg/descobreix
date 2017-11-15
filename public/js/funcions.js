@@ -1,81 +1,24 @@
+$("#formRestaurant").hide();
+$("#ocultafegirRest").hide();
 jQuery(document).ready(function ($) {
-    /**
-     * Events nou restaurant
-     */
-    /*$("#Alta button").click(function (e) {
-        e.preventDefault();
-        $("#message").empty();
-        $('#loading').show();
-        var selected = new Array();
-        $("input:checkbox[name=Items]:checked").each(function() {
-            selected.push($(this).val());
-        });
-        var dataForm = {
-
-            _method: "POST",
-            nom : $("#nomestabliment").val(),
-            telefon : $("#telefon").val(),
-            preuMitja : $("select").val(),
-            horariMati : $("#horariMati").val(),
-            horariMigdia : $("#horariMigdia").val(),
-            horariNit : $("#horariNit").val(),
-            items : selected,
-            imatge : $("#file").val()
-        }
-        //console.log(data);
-        $.ajax({
-            _token: "{{ csrf_token() }}",
-            url: "post", // Url to which the request is send
-            type: "POST",             // Type of request to be send, called as method
-            data: data, // Data sent to server, a set of key/value pairs (i.e. form fields and values)
-            contentType: true,       // The content type used when sending data to the server.
-            contentType: 'multipart/form-data',
-            cache: false,             // To unable request pages to be cached
-            processData:false,        // To send DOMDocument or non processed data file it is set to false
-            success: function(data)   // A function to be called if request succeeds
-            {
-                $('#loading').hide();
-                $("#message").html(data);
-            },
-            error: function( jqXHR, textStatus, errorThrown ) {
-
-                if (jqXHR.status === 0) {
-
-                    alert('Not connect: Verify Network.');
-
-                } else if (jqXHR.status == 404) {
-
-                    alert('Requested page not found [404]');
-
-                } else if (jqXHR.status == 500) {
-
-                    alert('Internal Server Error [500].');
-
-                } else if (textStatus === 'parsererror') {
-
-                    alert('Requested JSON parse failed.');
-
-                } else if (textStatus === 'timeout') {
-
-                    alert('Time out error.');
-
-                } else if (textStatus === 'abort') {
-
-                    alert('Ajax request aborted.');
-
-                } else {
-
-                    console.log('Uncaught Error: ' + jqXHR.responseText);
-
-                }
-            }
-
-
-            });
-    });*/
-
-    // Funio de previsualització de la imatge
+  //oculta formulari restaurant
+  $("#formRestaurant").hide();
+  $("#ocultafegirRest").hide();
+      // Funio de previsualització de la imatge
     $(function() {
+        //mostra formulari restaurant
+        $("#afegirRest").click(function () {
+            $("#formRestaurant").show();
+            $("#afegirRest").hide();
+            $("#ocultafegirRest").show();
+            //location.reload(true);
+          });
+          $("#ocultafegirRest").click(function () {
+              $("#formRestaurant").hide();
+              $("#ocultafegirRest").hide();
+              $("#afegirRest").show();
+              //location.reload(true);
+            });
         $("#file1").change(function() {
             $("#message1").empty(); // To remove the previous error message
             var file = this.files[0];
@@ -136,6 +79,7 @@ jQuery(document).ready(function ($) {
             $.ajax({
                 type: "GET",
                 url: "/onmenjar/act/"+id,
+                //url: "/appvallLord/public/onmenjar/act/"+id,
                 data: dataString,
                 success: function (data) {
                   alert("activat");
@@ -180,6 +124,7 @@ jQuery(document).ready(function ($) {
               $.ajax({
                   type: "GET",
                   url: "/onmenjar/desac/"+id,
+                  //url: "/appvallLord/public/onmenjar/desac/"+id,
                   data: dataString,
                   success: function (data) {
                     alert("desactivat");
@@ -223,6 +168,7 @@ jQuery(document).ready(function ($) {
                 $.ajax({
                     type: "GET",
                     url: "/onmenjar/eliminar/"+id,
+                    //url: "/appvallLord/public/onmenjar/eliminar/"+id,
                     data: dataString,
                     success: function (data) {
                       alert("eliminat");

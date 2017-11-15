@@ -5,9 +5,16 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Afegir restaurant</div>
+                <div class="panel-heading">
+                  <a class="btn btn-primary" id="afegirRest">
+                    <i class="glyphicon glyphicon-plus">  Afegir Restaurant  </i>
+                  </a>
+                  <a class="btn btn-primary" id="ocultafegirRest">
+                    <i class="glyphicon glyphicon-minus">  Amaga  </i>
+                  </a>
+                </div>
 
-                <div class="panel-body">
+                <div class="panel-body" id="formRestaurant">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -118,16 +125,16 @@
                                                 <div id="message1"></div>
                                                 <div id="selectImage">
                                                 	<label>
-							<strong>Mides recomanades: </strong>
-							<ul>
-								<li>550px x 340px</li>
-								<li>Màxim 50 kb</li>
-							</ul>
-							</label>
+                                        							<strong>Mides recomanades: </strong>
+                                        							<ul>
+                                        								<li>550px x 340px</li>
+                                        								<li>Màxim 50 kb</li>
+                                        							</ul>
+                                        							</label>
                                                    <input type="file" name="file1" id="file1" required />
                                                 </div>
-						<hr id="line">
-						<div id="image_preview1"><img id="previewing1" src="{{ url('/') }}/imatges/noimage.png" /></div>
+                                						<hr id="line">
+                                						<div id="image_preview1"><img id="previewing1" src="{{ url('/') }}/imatges/noimage.png" /></div>
                                         </div>
 
                                         <div class="col-md-6">
@@ -135,16 +142,16 @@
                                                 <div id="message2"></div>
                                                 <div id="selectImage">
                                                     	<label>
-							<strong>Mides recomanades: </strong>
-							<ul>
-								<li>550px x 340px</li>
-								<li>Màxim 50 kb</li>
-							</ul>
-							</label>
+                                        							<strong>Mides recomanades: </strong>
+                                        							<ul>
+                                        								<li>550px x 340px</li>
+                                        								<li>Màxim 50 kb</li>
+                                        							</ul>
+                                        							</label>
                                                     <input type="file" name="file2" id="file2" required />
                                                 </div>
-						<hr id="line">
-						<div id="image_preview2"><img id="previewing2" src="{{ url('/') }}/imatges/noimage.png" /></div>
+                                    						<hr id="line">
+                                    						<div id="image_preview2"><img id="previewing2" src="{{ url('/') }}/imatges/noimage.png" /></div>
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +165,7 @@
             </div>
         </div>
             <div class="panel panel-default">
-                <div class="panel-heading">Estadistiques</div>
+                <div class="panel-heading">Llistat restaurants</div>
                     <div class="panel-body">
                       <div class="panel-heading">
                       <!-- Taula accessos -->
@@ -200,14 +207,14 @@
 
                                         @if ($restaurant->actiu === 1)
                                           <lavel id ="desactivar">
-                                            <button type="submit" class="w1-button btn btn-success btn-xs" name="act/" value="{{ $restaurant->id}}"
+                                            <button type="submit" class="w1-button btn btn-warning btn-xs" name="act/" value="{{ $restaurant->id}}"
                                                     data-content="Activa la visivilitat del restaurant a l'aplicació" title="Desactivar" data-toggle="popover" data-trigger="hover">
                                                 <i class="glyphicon glyphicon-exclamation-sign"> Desactivar </i>
                                             </button>
                                             </lavel>
                                         @else
                                           <lavel id ="activar">
-                                            <button type="submit" class="w1-button btn btn-warning btn-xs" name="desac/" value="{{ $restaurant->id}}"
+                                            <button type="submit" class="w1-button btn btn-success btn-xs" name="desac/" value="{{ $restaurant->id}}"
                                                     data-content="Desactiva la visivilitat del restaurant a l'aplicació" title="Activar" data-toggle="popover" data-trigger="hover">
                                                 <i class="glyphicon glyphicon-exclamation-sign"> Activar </i>
                                             </button>
