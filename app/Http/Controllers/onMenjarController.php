@@ -27,17 +27,29 @@ class onMenjarController extends Controller
      */
     public function index()
     {
+
+        //return $restaurants;
         return view('onMenjar/onMenjaradmin');
     }
-
+    /** Crida el model per llistar tots els accessos
+         * @return mixed
+         */
+    public function llistarRestaurants()
+    {
+        $restaurant = new Restaurant();
+        //Es pagina el resultat
+        $restaurants = $restaurant->getRestaurant()->paginate(15);
+        return $restaurants;
+    }
     /**
      *
      *Afegir restaurant
      *
      */
-    public function onMenjaradd(Request $request)
+    public function onMenjaradd()
     {
-        return view('onMenjar/onMenjaradd');
+        $restaurants = $this->llistarRestaurants();
+        return view('onMenjar/onMenjaradd')->with('restaurants', $restaurants);
 
     }
     public function onMenjarpost(Request $request)
@@ -103,13 +115,10 @@ class onMenjarController extends Controller
             //$restaurant = Restaurant::find(Input::get('id'));
             if($Dies->insertDia($dies)){
                 if($Item->insertItem($request->Items)==true){
-                    return view('onMenjar/onMenjaradd');
+                    return redirect()->back();
                 }
             }
         };
-
-
-
     }
 
     /**
@@ -129,6 +138,23 @@ class onMenjarController extends Controller
     public function onMenjarmod()
     {
         return view('onMenjar/onMenjarmod');
+    }
+    public function desactivarRestaurant($id){
+
+        $Restaurant = new Restaurant();
+        $Restaurant->desactivarRestaurant($id);
+        return redirect()->back();
+    }
+    public function activarRestaurant($id){
+        //return $request;
+        $Restaurant = new Restaurant();
+        $Restaurant->activarRestaurant($id);
+        return redirect()->back();
+    }
+    public function borrarRestaurant($id){
+        $Restaurant = new Restaurant();
+        $Restaurant->borrarRestaurant($id);
+        return redirect()->back();
     }
 
 }

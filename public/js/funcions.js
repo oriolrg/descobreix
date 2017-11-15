@@ -127,7 +127,137 @@ jQuery(document).ready(function ($) {
         $('#previewing2').attr('width', '250px');
         $('#previewing2').attr('height', '230px');
     };
-
+    //bactivar desactivar restaurant
+    $("#activar button").click(function () {
+        var id = $(this).val();
+        var dataString = 'id_restaurant='+id;
+        var r = confirm('Estas segur que vols activar-lo?');
+        if (r == true) {
+            $.ajax({
+                type: "GET",
+                url: "/onmenjar/act/"+id,
+                data: dataString,
+                success: function (data) {
+                  alert("activat");
+                  location.reload(true);
+                    //$("#" + id).remove();
+                },
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                        alert(msg);
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                        alert(msg);
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                        alert(msg);
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                        alert(msg);
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                        alert(msg);
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                        alert(msg);
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        alert(msg);
+                    }
+                },
+            });
+        }
+        //location.reload(true);
+      });
+      //bactivar desactivar restaurant
+      $("#desactivar button").click(function () {
+          var id = $(this).val();
+          var dataString = 'id_restaurant='+id;
+          var r = confirm('Estas segur que vols desactivar-lo?');
+          if (r == true) {
+              $.ajax({
+                  type: "GET",
+                  url: "/onmenjar/desac/"+id,
+                  data: dataString,
+                  success: function (data) {
+                    alert("desactivat");
+                    location.reload(true);
+                  },
+                  error: function (jqXHR, exception) {
+                      var msg = '';
+                      if (jqXHR.status === 0) {
+                          msg = 'Not connect.\n Verify Network.';
+                          alert(msg);
+                      } else if (jqXHR.status == 404) {
+                          msg = 'Requested page not found. [404]';
+                          alert(msg);
+                      } else if (jqXHR.status == 500) {
+                          msg = 'Internal Server Error [500].';
+                          alert(msg);
+                      } else if (exception === 'parsererror') {
+                          msg = 'Requested JSON parse failed.';
+                          alert(msg);
+                      } else if (exception === 'timeout') {
+                          msg = 'Time out error.';
+                          alert(msg);
+                      } else if (exception === 'abort') {
+                          msg = 'Ajax request aborted.';
+                          alert(msg);
+                      } else {
+                          msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                          alert(msg);
+                      }
+                  },
+              });
+          }
+          //location.reload(true);
+        });
+        //bactivar desactivar restaurant
+        $("#eliminar button").click(function () {
+            var id = $(this).val();
+            var dataString = 'id_restaurant='+id;
+            var r = confirm('Estas segur que vols eliminar-lo?');
+            if (r == true) {
+                $.ajax({
+                    type: "GET",
+                    url: "/onmenjar/eliminar/"+id,
+                    data: dataString,
+                    success: function (data) {
+                      alert("eliminat");
+                      location.reload(true);
+                        //$("#" + id).remove();
+                    },
+                    error: function (jqXHR, exception) {
+                        var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                            alert(msg);
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                            alert(msg);
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                            alert(msg);
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                            alert(msg);
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                            alert(msg);
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                            alert(msg);
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                            alert(msg);
+                        }
+                    },
+                });
+            }
+            //location.reload(true);
+          });
 
 
 });

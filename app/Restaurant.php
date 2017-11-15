@@ -28,5 +28,28 @@ class Restaurant extends Model
         $this->save();
         return True;
     }
+    /** Llista tots els accessos
+     * @return mixed
+     */
+    public function getRestaurant(){
+        //comprobar format hora
+        return $this->orderBy('id', 'asc');
+        //llista errors borrats, no utilitzat
+        //return $this->where('borrat',0)->orderBy('data_acces', 'desc');
+    }
+    public function desactivarRestaurant($id){
 
+        $this->where('id', $id)->where('actiu' , 1)->update(['actiu' => 0]);
+        return "des";
+
+    }
+    public function activarRestaurant($id){
+
+        $this->where('id', $id)->where('actiu' , 0)->update(['actiu' => 1]);
+        //return "act";
+
+    }
+    public function borrarRestaurant($id){
+        $this->where('id', $id)->delete();
+    }
 }

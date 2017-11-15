@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Items;
-
+/** retorna dades utils per app
+     * @param Request $request
+     * @return mixed
+     */
 class proveidorRestaurantController extends Controller
 {
 
@@ -13,7 +16,7 @@ class proveidorRestaurantController extends Controller
     public function proveidor(){
       $hoy = getdate();
       //return Restaurant::all(),Items::all();
-      $data = collect(Restaurant::all());
+      $data = collect(Restaurant::where('actiu', 1)->get());
 
       //return $hoy;
       return $data;
