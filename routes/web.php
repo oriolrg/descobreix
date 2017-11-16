@@ -27,7 +27,8 @@ Route::get('/onmenjar/add', 'onMenjarController@onMenjaradd')->name('onMenjaradd
 //Route::get('/onmenjar/post', 'onMenjarController@onMenjarpost')->name('onMenjarpost');
 Route::post('/onmenjar/post', 'onMenjarController@onMenjarpost')->name('onMenjarpost');
 Route::get('/onmenjar/dell', 'onMenjarController@onMenjardell')->name('onMenjardell');
-Route::get('/onmenjar/mod', 'onMenjarController@onMenjarmod')->name('onMenjarmod');
+Route::post('/onmenjar/mod', 'onMenjarController@onMenjarmod')->name('onMenjarmod');
+Route::post('/onmenjar/mod/post', 'onMenjarController@onMenjarmodpost')->name('onMenjarmodpost');
 //desactivar restaurant
 Route::get('/onmenjar/desac/{item}', 'onMenjarController@desactivarRestaurant')->name('desactivarRestaurant');
 Route::get('/onmenjar/act/{item}', 'onMenjarController@activarRestaurant')->name('activarRestaurant');

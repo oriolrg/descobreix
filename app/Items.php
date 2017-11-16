@@ -22,12 +22,44 @@ class Items extends Model
       $this->ApteCeliacs = "close-circle";
       $this->Terrasa = "close-circle";
       $this->ZonaEsbarjo = "close-circle";
-      foreach ($nouItem as $Item) {
-        //actualitzo valord seleccionats
-        $this->$Item = "checkmark-circle";
+      //return $nouItem;
+      if($nouItem){
+        foreach ($nouItem as $Item) {
+          //actualitzo valord seleccionats
+          $this->$Item = "checkmark-circle";
+        }
       }
 
       $this->save();
       return True;
+  }
+  public function updateItem($Items, $id){
+    //return $Items;
+    $this->where('id', $id)->update(
+      [
+        'Menu' => "close-circle",
+        'MenuInfantil' => "close-circle",
+        'Carta' => "close-circle",
+        'CuinaCatalana' => "close-circle",
+        'Pizza' => "close-circle",
+        'PlatsCombinats' => "close-circle",
+        'Entrepans' => "close-circle",
+        'ApteCeliacs' => "close-circle",
+        'Terrasa' => "close-circle",
+        'ZonaEsbarjo' => "close-circle",
+      ]
+    );
+    if($Items){foreach ($Items as $Item) {
+          $this->where('id', $id)->update(
+            [
+              $Item => "checkmark-circle",
+            ]
+          );
+      }
+    }
+    return True;
+  }
+  public function seleccionarItem($id){
+    return $this->where('id', $id)->get();
   }
 }

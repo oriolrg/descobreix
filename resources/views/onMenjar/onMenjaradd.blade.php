@@ -87,7 +87,7 @@
                             <div class="col-md-8">
                                 <strong>de </strong>
                                 <!--TODO arreglar formulari-->
-                                <select name="horariNitDe"preumig id="horariNitDe">
+                                <select name="horariNitDe" id="horariNitDe">
                                     <option value="17">17h</option>
                                     <option value="18">18h</option>
                                     <option value="19">19h</option>
@@ -232,10 +232,13 @@
                                     </td>
                                     <td>
                                       <lavel id ="modificar">
-                                          <button  type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $restaurant->id}}"
+                                        <form action="/onmenjar/mod" method="POST">
+                                          {{ csrf_field() }}
+                                          <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $restaurant->id}}"
                                                   data-content="Eliminar definitivament l'acces" title="Modificar" data-toggle="popover" data-trigger="hover">
                                               <i class="glyphicon glyphicon-pencil"> Modificar </i>
                                           </button>
+                                        </form>
                                       </lavel>
                                   </td>
                               </tr>

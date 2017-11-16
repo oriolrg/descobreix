@@ -86,36 +86,20 @@ class onMenjarController extends Controller
             'imatge1' => $nomprincipal,
             'imatge2' => $nomsecundari
         ]);
-        $items = collect();
-        //return $request->Items;
-        foreach ($request->Items as $item){
-          $items->put($item, "checkmark-circle");
-        }
-
-        //TODO crear model i afegir a bbdd
-        $dies = collect();
-        //return $request;
-        foreach ($request->Dies as $dia){
-          $dies->put($dia, $dia);
-        }
-
-        //return $dies;
-
         $Restaurant = new Restaurant();
         $Item = new Items();
-
         $Dies = new Dies();
         //return $Item->insertItem($request->Items);
         //return $request->Items;
         //insertar nou restaurant
         //TODO falta configurar resposta necessaria
-
+        //return $Item->insertItem($request->Items);
         if($Restaurant->insertRestaurant($nouRestaurant))
         {
             //$restaurant = Restaurant::find(Input::get('id'));
-            if($Dies->insertDia($dies)){
+            if($Dies->insertDia($request->Dies)){
                 if($Item->insertItem($request->Items)==true){
-                    return redirect()->back();
+                    return $this->onMenjaradd();
                 }
             }
         };
@@ -135,9 +119,70 @@ class onMenjarController extends Controller
      *Modificar restaurant
      *
      */
-    public function onMenjarmod()
+    public function onMenjarmod(Request $request)
     {
-        return view('onMenjar/onMenjarmod');
+        $restaurant = new Restaurant();
+        $item = new Items();
+        $dies = new Dies();
+        //$items = new Item();
+        //$dies = new Dies();
+        $dataRestaurant = $restaurant->seleccionarRestaurant($request->input('id_restaurant'));
+        $dataItem = $item->seleccionarItem($request->input('id_restaurant'));
+        $dataDia = $dies->seleccionarDia($request->input('id_restaurant'));
+        //return $dataDia;
+        return view('onMenjar/onMenjarmod')->with('dataRestaurant',$dataRestaurant)->with('dataItem',$dataItem)->with('dataDia',$dataDia);
+    }
+    public function onMenjarmodpost(Request $request)
+    {
+
+      //return $request;
+      $fileprincipal = $request->file('file1');
+      $filesecundari = $request->file('file2');
+
+      //obtenir nom imatge principal i secundaria
+      $nomprincipal = $fileprincipal->getClientOriginalName();
+      $nomsecundari = $filesecundari->getClientOriginalName();
+
+      //Guardat imatges en local
+      \Storage::disk('local')->put($nomprincipal,  \File::get($fileprincipal));
+      \Storage::disk('local')->put($nomsecundari,  \File::get($filesecundari));
+
+
+      $json = $request->input();
+      $datos = json_decode(json_encode($json), true);
+      //Preparació dades bbdd
+      $nouRestaurant = collect([
+          'nom' => $datos["nomestabliment"],
+          'telefon' => $datos["telefon"],
+          'direccio' => $datos["direccio"],
+          'poblacio' => $datos["poblacio"],
+          'preuMitja' => $datos["preumig"],
+          'obertura_dia' => $datos["horariDiaDe"],
+          'tancament_dia' => $datos["horariDiaA"],
+          'obertura_nit' => $datos["horariNitDe"],
+          'tancament_nit' => $datos["horariNitA"],
+          'imatge1' => $nomprincipal,
+          'imatge2' => $nomsecundari
+      ]);
+
+      //TODO crear model i afegir a bbdd
+      $dies = collect();
+      //return $request;
+
+      //return $items;
+
+      $Restaurant = new Restaurant();
+      //return $Restaurant;
+      $Item = new Items();
+
+      //$Dies = new Dies();
+      $Restaurant->updateRestaurant($nouRestaurant, $datos["id"]);
+      $Item->updateItem($request->Items, $datos["id"]);
+      //$Dies->updateDies($dies, $datos["id"]);
+        //$items = new Item();
+        //$dies = new Dies();
+        //$dataRestaurant = $restaurant->seleccionarRestaurant($request->input('id_restaurant'));
+      return redirect('/onmenjar/add');
     }
     public function desactivarRestaurant($id){
 

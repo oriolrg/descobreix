@@ -13,12 +13,17 @@ class Dies extends Model
   public function insertDia($dies){
       $lastRestaurant = Restaurant::orderBy('id', 'desc')->first();
       $this->idRestaurant = $lastRestaurant->id;
-
-      foreach ($dies as $dia) {
-        //actualitzo valord seleccionats
-        $this->$dia = True;
+      if($dies){
+        foreach ($dies as $dia) {
+          //actualitzo valord seleccionats
+          $this->$dia = True;
+        }
       }
+
       $this->save();
       return True;
+  }
+  public function seleccionarDia($id){
+    return $this->where('id', $id)->get();
   }
 }

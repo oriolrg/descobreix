@@ -1,5 +1,6 @@
 $("#formRestaurant").hide();
 $("#ocultafegirRest").hide();
+$("#id").hide();
 jQuery(document).ready(function ($) {
   //oculta formulari restaurant
   $("#formRestaurant").hide();
