@@ -232,7 +232,7 @@
                                                       <li>Màxim 50 kb</li>
                                                     </ul>
                                                     </label>
-                                                  <input type="file" name="file2" id="file2" required />
+                                                  <input type="file" name="file2" id="file2"/>
                                               </div>
                                               <hr id="line">
                                               @if ($restaurant->imatgeSecundaria)

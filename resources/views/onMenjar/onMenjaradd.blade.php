@@ -233,6 +233,7 @@
                                     <td>
                                       <lavel id ="modificar">
                                         <form action="/onmenjar/mod" method="POST">
+                                        <!--<form action="/appvallLord/public/onmenjar/mod" method="POST">-->
                                           {{ csrf_field() }}
                                           <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $restaurant->id}}"
                                                   data-content="Eliminar definitivament l'acces" title="Modificar" data-toggle="popover" data-trigger="hover">

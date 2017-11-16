@@ -11,6 +11,9 @@ use App\Http\Resources\Restaurants;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('error', function () {
+    abort(503);
+});
 
 Route::get('/', function () {
     return view('welcome');
