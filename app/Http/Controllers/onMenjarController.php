@@ -136,35 +136,96 @@ class onMenjarController extends Controller
     {
 
       //return $request;
-      $fileprincipal = $request->file('file1');
-      $filesecundari = $request->file('file2');
+      if($request->file('file1')&&$request->file('file2')){
+        $fileprincipal = $request->file('file1');
+        $filesecundari = $request->file('file2');
 
-      //obtenir nom imatge principal i secundaria
-      $nomprincipal = $fileprincipal->getClientOriginalName();
-      $nomsecundari = $filesecundari->getClientOriginalName();
+        //obtenir nom imatge principal i secundaria
+        $nomprincipal = $fileprincipal->getClientOriginalName();
+        $nomsecundari = $filesecundari->getClientOriginalName();
 
-      //Guardat imatges en local
-      \Storage::disk('local')->put($nomprincipal,  \File::get($fileprincipal));
-      \Storage::disk('local')->put($nomsecundari,  \File::get($filesecundari));
+        //Guardat imatges en local
+        \Storage::disk('local')->put($nomprincipal,  \File::get($fileprincipal));
+        \Storage::disk('local')->put($nomsecundari,  \File::get($filesecundari));
+        $json = $request->input();
+        $datos = json_decode(json_encode($json), true);
+        //Preparació dades bbdd
+        $nouRestaurant = collect([
+            'nom' => $datos["nomestabliment"],
+            'telefon' => $datos["telefon"],
+            'direccio' => $datos["direccio"],
+            'poblacio' => $datos["poblacio"],
+            'preuMitja' => $datos["preumig"],
+            'obertura_dia' => $datos["horariDiaDe"],
+            'tancament_dia' => $datos["horariDiaA"],
+            'obertura_nit' => $datos["horariNitDe"],
+            'tancament_nit' => $datos["horariNitA"],
+            'imatge1' => $nomprincipal,
+            'imatge2' => $nomsecundari
+        ]);
+      }elseif($request->file('file1')){
+        $fileprincipal = $request->file('file1');
 
+        //obtenir nom imatge principal i secundaria
+        $nomprincipal = $fileprincipal->getClientOriginalName();
 
-      $json = $request->input();
-      $datos = json_decode(json_encode($json), true);
-      //Preparació dades bbdd
-      $nouRestaurant = collect([
-          'nom' => $datos["nomestabliment"],
-          'telefon' => $datos["telefon"],
-          'direccio' => $datos["direccio"],
-          'poblacio' => $datos["poblacio"],
-          'preuMitja' => $datos["preumig"],
-          'obertura_dia' => $datos["horariDiaDe"],
-          'tancament_dia' => $datos["horariDiaA"],
-          'obertura_nit' => $datos["horariNitDe"],
-          'tancament_nit' => $datos["horariNitA"],
-          'imatge1' => $nomprincipal,
-          'imatge2' => $nomsecundari
-      ]);
+        //Guardat imatges en local
+        \Storage::disk('local')->put($nomprincipal,  \File::get($fileprincipal));
+        $json = $request->input();
+        $datos = json_decode(json_encode($json), true);
+        //Preparació dades bbdd
+        $nouRestaurant = collect([
+            'nom' => $datos["nomestabliment"],
+            'telefon' => $datos["telefon"],
+            'direccio' => $datos["direccio"],
+            'poblacio' => $datos["poblacio"],
+            'preuMitja' => $datos["preumig"],
+            'obertura_dia' => $datos["horariDiaDe"],
+            'tancament_dia' => $datos["horariDiaA"],
+            'obertura_nit' => $datos["horariNitDe"],
+            'tancament_nit' => $datos["horariNitA"],
+            'imatge1' => $nomprincipal,
+        ]);
+      }elseif($request->file('file2')){
+        $filesecundari = $request->file('file2');
 
+        //obtenir nom imatge principal i secundaria
+        $nomsecundari = $filesecundari->getClientOriginalName();
+
+        //Guardat imatges en local
+        \Storage::disk('local')->put($nomsecundari,  \File::get($filesecundari));
+        $json = $request->input();
+        $datos = json_decode(json_encode($json), true);
+        //Preparació dades bbdd
+        $nouRestaurant = collect([
+            'nom' => $datos["nomestabliment"],
+            'telefon' => $datos["telefon"],
+            'direccio' => $datos["direccio"],
+            'poblacio' => $datos["poblacio"],
+            'preuMitja' => $datos["preumig"],
+            'obertura_dia' => $datos["horariDiaDe"],
+            'tancament_dia' => $datos["horariDiaA"],
+            'obertura_nit' => $datos["horariNitDe"],
+            'tancament_nit' => $datos["horariNitA"],
+            'imatge2' => $nomsecundari
+        ]);
+      }
+      else{
+        $json = $request->input();
+        $datos = json_decode(json_encode($json), true);
+        //Preparació dades bbdd
+        $nouRestaurant = collect([
+            'nom' => $datos["nomestabliment"],
+            'telefon' => $datos["telefon"],
+            'direccio' => $datos["direccio"],
+            'poblacio' => $datos["poblacio"],
+            'preuMitja' => $datos["preumig"],
+            'obertura_dia' => $datos["horariDiaDe"],
+            'tancament_dia' => $datos["horariDiaA"],
+            'obertura_nit' => $datos["horariNitDe"],
+            'tancament_nit' => $datos["horariNitA"]
+        ]);
+      }
       //TODO crear model i afegir a bbdd
       $dies = collect();
       //return $request;

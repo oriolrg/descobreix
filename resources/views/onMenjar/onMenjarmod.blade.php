@@ -211,10 +211,14 @@
                                                       <li>Màxim 50 kb</li>
                                                     </ul>
                                                     </label>
-                                                 <input type="file" name="file1" id="file1" required />
+                                                 <input type="file" name="file1" id="file1" value="{{ $restaurant->imatgePrincipal}}"/>
                                               </div>
                                           <hr id="line">
-                                          <div id="image_preview1"><img id="previewing1" src="{{ url('/') }}/imatges/noimage.png" /></div>
+                                          @if ($restaurant->imatgePrincipal)
+                                            <div id="image_preview1"><img id="previewing1" src="http://lavalldelord.com/appvallLord/storage/app/images/{{ $restaurant->imatgePrincipal}}" display="block" height='230px' width="250px"/></div>
+                                          @else
+                                            <div id="image_preview1"><img id="previewing1" src="{{ url('/') }}/imatges/noimage.png" /></div>
+                                          @endif
                                       </div>
 
                                       <div class="col-md-6">
@@ -231,7 +235,11 @@
                                                   <input type="file" name="file2" id="file2" required />
                                               </div>
                                               <hr id="line">
-                                              <div id="image_preview2"><img id="previewing2" src="{{ url('/') }}/imatges/noimage.png" /></div>
+                                              @if ($restaurant->imatgeSecundaria)
+                                                <div id="image_preview2"><img id="previewing2"  src="http://lavalldelord.com/appvallLord/storage/app/images/{{ $restaurant->imatgeSecundaria}}" display="block" height='230px' width="250px" /></div>
+                                              @else
+                                                <div id="image_preview2"><img id="previewing2" src="{{ url('/') }}/imatges/noimage.png" /></div>
+                                              @endif
                                       </div>
                                   </div>
                               </div>

@@ -30,21 +30,70 @@ class Restaurant extends Model
     }
     public function updateRestaurant(Collection $nouRestaurant, $id){
         //return $nouRestaurant->get('nom');
-        $this->where('id', $id)->update(
-          [
-            'nom' => $nouRestaurant->get('nom'),
-            'telefon' => $nouRestaurant->get('telefon'),
-            'direccio' => $nouRestaurant->get('direccio'),
-            'poblacio' => $nouRestaurant->get('poblacio'),
-            'preu' => $nouRestaurant->get('preuMitja'),
-            'obertura_dia' => $nouRestaurant->get('obertura_dia'),
-            'tancament_dia' => $nouRestaurant->get('tancament_dia'),
-            'obertura_nit' => $nouRestaurant->get('obertura_nit'),
-            'tancament_nit' => $nouRestaurant->get('tancament_nit'),
-            'imatgePrincipal' => $nouRestaurant->get('imatge1'),
-            'imatgeSecundaria' => $nouRestaurant->get('imatge2'),
-          ]
-        );
+        if($nouRestaurant->get('imatge1')&&$nouRestaurant->get('imatge2')){
+          $this->where('id', $id)->update(
+            [
+              'nom' => $nouRestaurant->get('nom'),
+              'telefon' => $nouRestaurant->get('telefon'),
+              'direccio' => $nouRestaurant->get('direccio'),
+              'poblacio' => $nouRestaurant->get('poblacio'),
+              'preu' => $nouRestaurant->get('preuMitja'),
+              'obertura_dia' => $nouRestaurant->get('obertura_dia'),
+              'tancament_dia' => $nouRestaurant->get('tancament_dia'),
+              'obertura_nit' => $nouRestaurant->get('obertura_nit'),
+              'tancament_nit' => $nouRestaurant->get('tancament_nit'),
+              'imatgePrincipal' => $nouRestaurant->get('imatge1'),
+              'imatgeSecundaria' => $nouRestaurant->get('imatge2'),
+            ]
+          );
+        }elseif($nouRestaurant->get('imatge1')){
+          $this->where('id', $id)->update(
+            [
+              'nom' => $nouRestaurant->get('nom'),
+              'telefon' => $nouRestaurant->get('telefon'),
+              'direccio' => $nouRestaurant->get('direccio'),
+              'poblacio' => $nouRestaurant->get('poblacio'),
+              'preu' => $nouRestaurant->get('preuMitja'),
+              'obertura_dia' => $nouRestaurant->get('obertura_dia'),
+              'tancament_dia' => $nouRestaurant->get('tancament_dia'),
+              'obertura_nit' => $nouRestaurant->get('obertura_nit'),
+              'tancament_nit' => $nouRestaurant->get('tancament_nit'),
+              'imatgePrincipal' => $nouRestaurant->get('imatge1'),
+            ]
+          );
+        }
+        if($nouRestaurant->get('imatge2')){
+          $this->where('id', $id)->update(
+            [
+              'nom' => $nouRestaurant->get('nom'),
+              'telefon' => $nouRestaurant->get('telefon'),
+              'direccio' => $nouRestaurant->get('direccio'),
+              'poblacio' => $nouRestaurant->get('poblacio'),
+              'preu' => $nouRestaurant->get('preuMitja'),
+              'obertura_dia' => $nouRestaurant->get('obertura_dia'),
+              'tancament_dia' => $nouRestaurant->get('tancament_dia'),
+              'obertura_nit' => $nouRestaurant->get('obertura_nit'),
+              'tancament_nit' => $nouRestaurant->get('tancament_nit'),
+              'imatgeSecundaria' => $nouRestaurant->get('imatge2'),
+            ]
+          );
+        }
+        else{
+          $this->where('id', $id)->update(
+            [
+              'nom' => $nouRestaurant->get('nom'),
+              'telefon' => $nouRestaurant->get('telefon'),
+              'direccio' => $nouRestaurant->get('direccio'),
+              'poblacio' => $nouRestaurant->get('poblacio'),
+              'preu' => $nouRestaurant->get('preuMitja'),
+              'obertura_dia' => $nouRestaurant->get('obertura_dia'),
+              'tancament_dia' => $nouRestaurant->get('tancament_dia'),
+              'obertura_nit' => $nouRestaurant->get('obertura_nit'),
+              'tancament_nit' => $nouRestaurant->get('tancament_nit'),
+            ]
+          );
+        }
+
         return True;
     }
     /** Llista tots els accessos
