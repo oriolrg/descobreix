@@ -39,4 +39,7 @@ Route::get('/onmenjar/eliminar/{item}', 'onMenjarController@borrarRestaurant')->
 //borrar restaurant
 Route::get('/onmenjar/borrar/{item}', 'onMenjarController@borrarRestaurant')->name('borrarRestaurant');
 Route::get('/restaurant', 'proveidorRestaurantController@proveidor')->name('proveidorRestaurantController@proveidor');
+Route::get('/restaurant/diahora/{dia}/{hora}', 'proveidorRestaurantController@proveidorDiaHora')->name('proveidorRestaurantController@proveidorDiaHora');
+Route::get('/restaurant/hora/{hora}', 'proveidorRestaurantController@proveidorHora')->name('proveidorRestaurantController@proveidorHora');
+Route::get('/restaurant/dia/{dia}', 'proveidorRestaurantController@proveidorDia')->name('proveidorRestaurantController@proveidorDia');
 Route::get('/restaurant/item/{item}', 'proveidorRestaurantController@proveidorItem')->name('proveidorRestaurantController@proveidorItem');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Items;
+use App\Dies;
 /** retorna dades utils per app
      * @param Request $request
      * @return mixed
@@ -29,5 +30,88 @@ class proveidorRestaurantController extends Controller
 
       return $data;
     }
+    public function proveidorDia($dia){
+      switch ($dia) {
+        case '1':
+            $data = collect(Dies::where('dilluns', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurant($data);
+          break;
+        case '2':
+            $data = collect(Dies::where('dimarts', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurant($data);
+          break;
+        case '3':
+            $data = collect(Dies::where('dimecres', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurant($data);
+          break;
+        case '4':
+            $data = collect(Dies::where('dijous', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurant($data);
+          break;
+        case '5':
+            $data = collect(Dies::where('divendres', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurant($data);
+          break;
+        case '6':
+            $data = collect(Dies::where('dissabte', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurant($data);
+          break;
+        case '7':
+            $data = collect(Dies::where('diumenge', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurant($data);
+          break;
+      }
+    }
+    public function proveidorHora($hora){
+        $Restaurant = new Restaurant();
+        return $Restaurant->seleccionarRestaurantHora($hora);
+    }
+    public function proveidorDiaHora($dia,$hora){
+      switch ($dia) {
+        case '1':
+            $data = collect(Dies::where('dilluns', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurantDiaHora($data,$hora);
+          break;
+        case '2':
+            $data = collect(Dies::where('dimarts', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurantDiaHora($data,$hora);
+          break;
+        case '3':
+            $data = collect(Dies::where('dimecres', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurantDiaHora($data,$hora);
+          break;
+        case '4':
+            $data = collect(Dies::where('dijous', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurantDiaHora($data,$hora);
+          break;
+        case '5':
+            $data = collect(Dies::where('divendres', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurantDiaHora($data,$hora);
+          break;
+        case '6':
+            $data = collect(Dies::where('dissabte', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurantDiaHora($data,$hora);
+          break;
+        case '7':
+            $data = collect(Dies::where('diumenge', 1)->select('id')->get());
+            $Restaurant = new Restaurant();
+            return $Restaurant->seleccionarRestaurant($data,$hora);
+          break;
+      }
+    }
+
 
 }

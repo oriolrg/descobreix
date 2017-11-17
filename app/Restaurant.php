@@ -106,7 +106,15 @@ class Restaurant extends Model
         //return $this->where('borrat',0)->orderBy('data_acces', 'desc');
     }
     public function seleccionarRestaurant($id){
-        return $this->where('id', $id)->get();
+        return $this->whereIn('id', $id)->get();
+
+    }
+    public function seleccionarRestaurantHora($hora){
+        return $this->where('obertura_dia', '<=', $hora)->where('tancament_dia', '>', $hora)->orWhere('obertura_nit', '<=', $hora)->where('tancament_nit', '>', $hora)->get();
+
+    }
+    public function seleccionarRestaurantDiaHora($id,$hora){
+        return $this->whereIn('id', $id)->where('obertura_dia', '<=', $hora)->where('tancament_dia', '>', $hora)->orWhereIn('id', $id)->where('obertura_nit', '<=', $hora)->where('tancament_nit', '>', $hora)->get();
 
     }
     public function desactivarRestaurant($id){
