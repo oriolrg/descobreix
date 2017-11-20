@@ -106,6 +106,10 @@ class Restaurant extends Model
         //return $this->where('borrat',0)->orderBy('data_acces', 'desc');
     }
     public function seleccionarRestaurant($id){
+        return $this->where('id', $id)->get();
+
+    }
+    public function seleccionarRestaurants($id){
         return $this->whereIn('id', $id)->get();
 
     }

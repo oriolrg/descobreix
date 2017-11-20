@@ -23,7 +23,33 @@ class Dies extends Model
       $this->save();
       return True;
   }
+  public function updateDies($Dies, $id){
+    //return $Items;
+    $this->where('id', $id)->update(
+      [
+        'dilluns' => False,
+        'dimarts' => False,
+        'dimecres' => False,
+        'dijous' => False,
+        'divendres' => False,
+        'dissabte' => False,
+        'diumenge' => False,
+      ]
+    );
+    if($Dies){foreach ($Dies as $dia) {
+          $this->where('id', $id)->update(
+            [
+              $dia => True,
+            ]
+          );
+      }
+    }
+    return True;
+  }
   public function seleccionarDia($id){
-    return $this->where('id', $id)->get();
+    return $this->where('idRestaurant', $id)->get();
+  }
+  public function borrarDia($id){
+      $this->where('idRestaurant', $id)->delete();
   }
 }

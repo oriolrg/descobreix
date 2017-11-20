@@ -99,7 +99,7 @@ class onMenjarController extends Controller
             //$restaurant = Restaurant::find(Input::get('id'));
             if($Dies->insertDia($request->Dies)){
                 if($Item->insertItem($request->Items)==true){
-                    return $this->onMenjaradd();
+                    return redirect('/onmenjar/add');
                 }
             }
         };
@@ -126,6 +126,7 @@ class onMenjarController extends Controller
         $dies = new Dies();
         //$items = new Item();
         //$dies = new Dies();
+
         $dataRestaurant = $restaurant->seleccionarRestaurant($request->input('id_restaurant'));
         $dataItem = $item->seleccionarItem($request->input('id_restaurant'));
         $dataDia = $dies->seleccionarDia($request->input('id_restaurant'));
@@ -236,10 +237,10 @@ class onMenjarController extends Controller
       //return $Restaurant;
       $Item = new Items();
 
-      //$Dies = new Dies();
+      $Dies = new Dies();
       $Restaurant->updateRestaurant($nouRestaurant, $datos["id"]);
       $Item->updateItem($request->Items, $datos["id"]);
-      //$Dies->updateDies($dies, $datos["id"]);
+      $Dies->updateDies($request->Dies, $datos["id"]);
         //$items = new Item();
         //$dies = new Dies();
         //$dataRestaurant = $restaurant->seleccionarRestaurant($request->input('id_restaurant'));
@@ -260,6 +261,10 @@ class onMenjarController extends Controller
     public function borrarRestaurant($id){
         $Restaurant = new Restaurant();
         $Restaurant->borrarRestaurant($id);
+        $Item = new Items();
+        $Item->borrarItem($id);
+        $dies = new Dies();
+        $dies->borrarDia($id);
         return redirect()->back();
     }
 

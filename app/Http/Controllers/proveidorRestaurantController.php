@@ -35,37 +35,37 @@ class proveidorRestaurantController extends Controller
         case '1':
             $data = collect(Dies::where('dilluns', 1)->select('id')->get());
             $Restaurant = new Restaurant();
-            return $Restaurant->seleccionarRestaurant($data);
+            return $Restaurant->seleccionarRestaurants($data);
           break;
         case '2':
             $data = collect(Dies::where('dimarts', 1)->select('id')->get());
             $Restaurant = new Restaurant();
-            return $Restaurant->seleccionarRestaurant($data);
+            return $Restaurant->seleccionarRestaurants($data);
           break;
         case '3':
             $data = collect(Dies::where('dimecres', 1)->select('id')->get());
             $Restaurant = new Restaurant();
-            return $Restaurant->seleccionarRestaurant($data);
+            return $Restaurant->seleccionarRestaurants($data);
           break;
         case '4':
             $data = collect(Dies::where('dijous', 1)->select('id')->get());
             $Restaurant = new Restaurant();
-            return $Restaurant->seleccionarRestaurant($data);
+            return $Restaurant->seleccionarRestaurants($data);
           break;
         case '5':
             $data = collect(Dies::where('divendres', 1)->select('id')->get());
             $Restaurant = new Restaurant();
-            return $Restaurant->seleccionarRestaurant($data);
+            return $Restaurant->seleccionarRestaurants($data);
           break;
         case '6':
             $data = collect(Dies::where('dissabte', 1)->select('id')->get());
             $Restaurant = new Restaurant();
-            return $Restaurant->seleccionarRestaurant($data);
+            return $Restaurant->seleccionarRestaurants($data);
           break;
         case '7':
             $data = collect(Dies::where('diumenge', 1)->select('id')->get());
             $Restaurant = new Restaurant();
-            return $Restaurant->seleccionarRestaurant($data);
+            return $Restaurant->seleccionarRestaurants($data);
           break;
       }
     }

@@ -60,6 +60,9 @@ class Items extends Model
     return True;
   }
   public function seleccionarItem($id){
-    return $this->where('id', $id)->get();
+    return $this->where('idRestaurant', $id)->get();
+  }
+  public function borrarItem($id){
+      return $this->where('idRestaurant', $id)->delete();
   }
 }
