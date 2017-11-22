@@ -17,7 +17,7 @@ class proveidorRestaurantController extends Controller
     public function proveidor(){
       $hoy = getdate();
       //return Restaurant::all(),Items::all();
-      $data = collect(Restaurant::where('actiu', 1)->get());
+      $data = collect(Restaurant::where('actiu', 1)->inRandomOrder()->get());
 
       //return $hoy;
       return $data;

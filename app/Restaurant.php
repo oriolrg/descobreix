@@ -106,19 +106,20 @@ class Restaurant extends Model
         //return $this->where('borrat',0)->orderBy('data_acces', 'desc');
     }
     public function seleccionarRestaurant($id){
+        //TODO afegir contador quan s'accedeix a la consulta del restaurant
         return $this->where('id', $id)->get();
 
     }
     public function seleccionarRestaurants($id){
-        return $this->whereIn('id', $id)->get();
+        return $this->whereIn('id', $id)->inRandomOrder()->get();
 
     }
     public function seleccionarRestaurantHora($hora){
-        return $this->where('obertura_dia', '<=', $hora)->where('tancament_dia', '>', $hora)->orWhere('obertura_nit', '<=', $hora)->where('tancament_nit', '>', $hora)->get();
+        return $this->where('obertura_dia', '<=', $hora)->where('tancament_dia', '>', $hora)->orWhere('obertura_nit', '<=', $hora)->where('tancament_nit', '>', $hora)->inRandomOrder()->get();
 
     }
     public function seleccionarRestaurantDiaHora($id,$hora){
-        return $this->whereIn('id', $id)->where('obertura_dia', '<=', $hora)->where('tancament_dia', '>', $hora)->orWhereIn('id', $id)->where('obertura_nit', '<=', $hora)->where('tancament_nit', '>', $hora)->get();
+        return $this->whereIn('id', $id)->where('obertura_dia', '<=', $hora)->where('tancament_dia', '>', $hora)->orWhereIn('id', $id)->where('obertura_nit', '<=', $hora)->where('tancament_nit', '>', $hora)->inRandomOrder()->get();
 
     }
     public function desactivarRestaurant($id){
