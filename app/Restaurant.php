@@ -106,6 +106,11 @@ class Restaurant extends Model
         //llista errors borrats, no utilitzat
         //return $this->where('borrat',0)->orderBy('data_acces', 'desc');
     }
+    public function getVisitesRestaurant(){
+        //return "hola";
+        return $this->leftJoin('visites_restaurant',  'restaurants.id', '=', 'visites_restaurant.idRestaurant');
+
+    }
     public function seleccionarRestaurant($id){
         //TODO afegir contador quan s'accedeix a la consulta del restaurant
         $Visites = new visitesRestaurant();

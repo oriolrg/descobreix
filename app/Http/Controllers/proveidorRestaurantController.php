@@ -29,9 +29,6 @@ class proveidorRestaurantController extends Controller
 
       $data = collect(Items::where('idRestaurant', $id)->get());
       visitesRestaurant::where('idRestaurant', $id)->increment('countVisitaRestaurant');
-      //$Visites = new visitesRestaurant();
-      //return $Visites->insertVisit($id);
-      //return "hola";
 
       return $data;
     }

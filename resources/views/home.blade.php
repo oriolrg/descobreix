@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a class="btn btn-info" href="{{ url('/onmenjar/add') }}"><i class="glyphicon glyphicon-cutlery">  OnMenjar  </i></a>
+                    <a class="btn btn-info" href="{{ url('/onmenjar/') }}"><i class="glyphicon glyphicon-cutlery">  OnMenjar  </i></a>
 
                 </div>
             </div>

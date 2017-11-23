@@ -28,9 +28,13 @@ class onMenjarController extends Controller
      */
     public function index()
     {
-
+        //TODO afegir mostra restaurants amb numero visites
         //return $restaurants;
-        return view('onMenjar/onMenjaradmin');
+        $restaurant = new Restaurant();
+        //Es pagina el resultat
+        $restaurants = $restaurant->getVisitesRestaurant()->paginate(15);
+        //return $restaurants-;
+        return view('onMenjar/onMenjaradmin')->with('restaurants', $restaurants);
     }
     /** Crida el model per llistar tots els accessos
          * @return mixed
