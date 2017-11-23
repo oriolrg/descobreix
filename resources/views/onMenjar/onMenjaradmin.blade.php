@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a class="btn btn-primary" href="{{ url('/onmenjar/add') }}"><i class="glyphicon glyphicon-plus">  Afegir establiment  </i></a>
+                    <a class="btn btn-primary" href="{{ url('/onmenjar/add') }}"><i class="glyphicon glyphicon-pencil">  Administrar establiments  </i></a>
 
                 </div>
             </div>
