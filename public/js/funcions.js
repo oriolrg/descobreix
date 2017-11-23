@@ -28,8 +28,13 @@ jQuery(document).ready(function ($) {
             if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2])))
             {
                 $('#previewing1').attr('src','noimage.png');
-                $("#message1").html("<p id='error'>Selecciona una imatge valida</p>"+"<h4>Important</h4>"+"<span id='error_message'>Només s'accepten formats jpeg, jpg and png</span>");
+                $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Només s'accepten formats jpeg, jpg and png</span>");
+
                 return false;
+            }if(file.size>50000){
+              $('#previewing1').attr('src','noimage.png');
+              $("#message1").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Màxim 50kb</span>");
+              return false;
             }
             else
             {
@@ -46,8 +51,13 @@ jQuery(document).ready(function ($) {
             if(!((imagefile==match[0]) || (imagefile==match[1]) || (imagefile==match[2])))
             {
                 $('#previewing2').attr('src','noimage.png');
-                $("#message2").html("<p id='error'>Selecciona una imatge valida</p>"+"<h4>Important</h4>"+"<span id='error_message'>Només s'accepten formats jpeg, jpg and png</span>");
+                $("#message2").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Només s'accepten formats jpeg, jpg and png</span>");
+
                 return false;
+            }if(file.size>50000){
+              $('#previewing2').attr('src','noimage.png');
+              $("#message2").html("<p id='error' style='color:red'>Selecciona una imatge valida</p>"+"<h4 style='color:red'>Important</h4>"+"<span id='error_message' style='color:red'>Màxim 50kb</span>");
+              return false;
             }
             else
             {
@@ -71,7 +81,7 @@ jQuery(document).ready(function ($) {
         $('#previewing2').attr('width', '250px');
         $('#previewing2').attr('height', '230px');
     };
-    //bactivar desactivar restaurant
+    //activar desactivar restaurant
     $("#activar button").click(function () {
         var id = $(this).val();
         var dataString = 'id_restaurant='+id;
@@ -116,7 +126,7 @@ jQuery(document).ready(function ($) {
         }
         //location.reload(true);
       });
-      //bactivar desactivar restaurant
+      // desactivar restaurant
       $("#desactivar button").click(function () {
           var id = $(this).val();
           var dataString = 'id_restaurant='+id;
@@ -160,7 +170,7 @@ jQuery(document).ready(function ($) {
           }
           //location.reload(true);
         });
-        //bactivar desactivar restaurant
+        //eliminar restaurant
         $("#eliminar button").click(function () {
             var id = $(this).val();
             var dataString = 'id_restaurant='+id;

@@ -20,26 +20,26 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form action="post"  method="POST" enctype="multipart/form-data">
+                    <form action="post"  method="POST" enctype="multipart/form-data" >
                         {{ csrf_field() }}
                         <div class="form-group" id="form">
 
                             <legend>Dades generals</legend>
                             <label for="nomestabliment" class="control-label col-md-3">Nom establiment</label>
                             <div class="col-md-9">
-                                <input type="text" name="nomestabliment" id="nomestabliment" class="form-control">
+                                <input type="text" name="nomestabliment" id="nomestabliment" class="form-control" required pattern="[a-zA-Z0-9\s-\u00C7]{1,30}">
                             </div>
                             <label for="telefon" class="control-label col-md-3">Telefon establiment</label>
                             <div class="col-md-9">
-                                <input type="text" name="telefon" id="telefon" class="form-control">
+                                <input type="text" name="telefon" id="telefon" class="form-control" required pattern="[0-9]{9}">
                             </div>
                             <label for="direccio" class="control-label col-md-3">Direcció</label>
                             <div class="col-md-9">
-                                <input type="text" name="direccio" id="direccio" class="form-control">
+                                <input type="text" name="direccio" id="direccio" class="form-control" required pattern="[a-zA-Z0-9\s\/-\u00C7]{1,30}">
                             </div>
-                            <label for="poblacio" class="control-label col-md-3">Poblacio</label>
+                            <label for="poblacio" class="control-label col-md-3">Poblacio</label required>
                             <div class="col-md-9">
-                                <input type="text" name="poblacio" id="poblacio" class="form-control">
+                                <input type="text" name="poblacio" id="poblacio" class="form-control" required pattern="[a-zA-Z0-9\s-\u00C7]{1,30}">
                             </div>
                             <label for="preumig" class="control-label col-md-3">Preu mitja</label>
                             <div class="col-md-9">
@@ -225,7 +225,7 @@
                                     <td>
                                         <lavel id ="eliminar">
                                           <button type="submit" class="btn btn-danger btn-xs" name="id_restaurant" value="{{ $restaurant->id}}"
-                                                  data-content="Eliminar definitivament l'acces" title="Eliminar" data-toggle="popover" data-trigger="hover">
+                                                  data-content="Eliminar definitivament el restaurant" title="Eliminar" data-toggle="popover" data-trigger="hover">
                                               <i class="glyphicon glyphicon-remove"> Eliminar </i>
                                           </button>
                                         </lavel>
@@ -236,7 +236,7 @@
                                         <!--<form action="/appvallLord/public/onmenjar/mod" method="POST">-->
                                           {{ csrf_field() }}
                                           <button type="submit" class="btn btn-primary btn-xs" name="id_restaurant" value="{{ $restaurant->id}}"
-                                                  data-content="Eliminar definitivament l'acces" title="Modificar" data-toggle="popover" data-trigger="hover">
+                                                  data-content="Modificar el restaurant" title="Modificar" data-toggle="popover" data-trigger="hover">
                                               <i class="glyphicon glyphicon-pencil"> Modificar </i>
                                           </button>
                                         </form>
