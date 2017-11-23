@@ -34,6 +34,6 @@ class CreateDiesObertura extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('dies_obertura');
     }
 }
