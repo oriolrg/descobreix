@@ -6,6 +6,7 @@ use App\Restaurant;
 use App\Items;
 use App\Horari;
 use App\Dies;
+use App\visitesRestaurant;
 use Illuminate\Http\Request;
 
 class onMenjarController extends Controller
@@ -89,6 +90,7 @@ class onMenjarController extends Controller
         $Restaurant = new Restaurant();
         $Item = new Items();
         $Dies = new Dies();
+        $Visites = new visitesRestaurant();
         //return $Item->insertItem($request->Items);
         //return $request->Items;
         //insertar nou restaurant
@@ -99,6 +101,7 @@ class onMenjarController extends Controller
             //$restaurant = Restaurant::find(Input::get('id'));
             if($Dies->insertDia($request->Dies)){
                 if($Item->insertItem($request->Items)==true){
+                    $Visites->insertFirstVisit();
                     return redirect('/onmenjar/add');
                 }
             }
@@ -265,6 +268,8 @@ class onMenjarController extends Controller
         $Item->borrarItem($id);
         $dies = new Dies();
         $dies->borrarDia($id);
+        $Visites = new visitesRestaurant();
+        $Visites->borrarRestaurantVisita($id);
         return redirect()->back();
     }
 

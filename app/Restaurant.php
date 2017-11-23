@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use App\Items;
+use App\visitesRestaurant;
 
 class Restaurant extends Model
 {
@@ -107,6 +108,8 @@ class Restaurant extends Model
     }
     public function seleccionarRestaurant($id){
         //TODO afegir contador quan s'accedeix a la consulta del restaurant
+        $Visites = new visitesRestaurant();
+        $Visites->insertVisit($id);
         return $this->where('id', $id)->get();
 
     }

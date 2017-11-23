@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Items;
 use App\Dies;
+use App\visitesRestaurant;
 /** retorna dades utils per app
      * @param Request $request
      * @return mixed
@@ -27,6 +28,10 @@ class proveidorRestaurantController extends Controller
       //$id = 2;
 
       $data = collect(Items::where('idRestaurant', $id)->get());
+      visitesRestaurant::where('idRestaurant', $id)->increment('countVisitaRestaurant');
+      //$Visites = new visitesRestaurant();
+      //return $Visites->insertVisit($id);
+      //return "hola";
 
       return $data;
     }
