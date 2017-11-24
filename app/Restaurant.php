@@ -113,8 +113,7 @@ class Restaurant extends Model
     }
     public function seleccionarRestaurant($id){
         //TODO afegir contador quan s'accedeix a la consulta del restaurant
-        $Visites = new visitesRestaurant();
-        $Visites->insertVisit($id);
+        
         return $this->where('id', $id)->get();
 
     }
