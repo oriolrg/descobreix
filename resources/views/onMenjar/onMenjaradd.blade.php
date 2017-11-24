@@ -35,7 +35,7 @@
                             </div>
                             <label for="direccio" class="control-label col-md-3">Direcció</label>
                             <div class="col-md-9">
-                                <input type="text" name="direccio" id="direccio" class="form-control" required pattern="[a-zA-Z0-9\s\/-\u00C7]{1,30}">
+                                <input type="text" name="direccio" id="direccio" class="form-control" required pattern="[a-zA-Z0-9\s\/-\u00C7]{1,50}">
                             </div>
                             <label for="poblacio" class="control-label col-md-3">Poblacio</label required>
                             <div class="col-md-9">
