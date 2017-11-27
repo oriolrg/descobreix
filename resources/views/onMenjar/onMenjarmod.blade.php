@@ -106,19 +106,25 @@
                           <div class="col-md-8">
                               <strong>de </strong>
                               <select name="horariDiaDe" id="horariDiaDe">
-                                @if ($restaurant->obertura_dia == 10) <option value="10" selected="selected">10h</option>@else <option value="10">10h</option>@endif
-                                @if ($restaurant->obertura_dia == 11) <option value="11" selected="selected">11h</option>@else <option value="11">11h</option>@endif
-                                @if ($restaurant->obertura_dia == 12) <option value="12" selected="selected">12h</option>@else <option value="12">12h</option>@endif
-                                @if ($restaurant->obertura_dia == 13) <option value="13" selected="selected">13h</option>@else <option value="13">13h</option>@endif
+                                @if ($restaurant->obertura_dia == '10:00') <option value="10:00" selected="selected">10:00</option>@else <option value="10:00">10:00</option>@endif
+                                @if ($restaurant->obertura_dia == '10:30') <option value="10:30" selected="selected">10:30</option>@else <option value="10:30">10:30</option>@endif
+                                @if ($restaurant->obertura_dia == '11:00') <option value="11:00" selected="selected">11:00</option>@else <option value="11:00">11:00</option>@endif
+                                @if ($restaurant->obertura_dia == '11:30') <option value="11:30" selected="selected">11:30</option>@else <option value="11:30">11:30</option>@endif
+                                @if ($restaurant->obertura_dia == '12:00') <option value="12:00" selected="selected">12:00</option>@else <option value="12:00">12:00</option>@endif
+                                @if ($restaurant->obertura_dia == '12:30') <option value="12:30" selected="selected">12:30</option>@else <option value="12:30">12:30</option>@endif
+                                @if ($restaurant->obertura_dia == '13:00') <option value="13:00" selected="selected">13:00</option>@else <option value="13:00">13:00</option>@endif
+                                @if ($restaurant->obertura_dia == '13:30') <option value="13:30" selected="selected">13:30</option>@else <option value="13:30">13:30</option>@endif
                               </select>
                               <strong>a </strong>
                               <!--TODO arreglar formulari-->
                               <select name="horariDiaA" id="horariDiaA">
-                                @if ($restaurant->tancament_dia == 13) <option value="13" selected="selected">13h</option>@else <option value="13">13h</option>@endif
-                                @if ($restaurant->tancament_dia == 14) <option value="14" selected="selected">14h</option>@else <option value="14">14h</option>@endif
-                                @if ($restaurant->tancament_dia == 15) <option value="15" selected="selected">15h</option>@else <option value="15">15h</option>@endif
-                                @if ($restaurant->tancament_dia == 16) <option value="16" selected="selected">16h</option>@else <option value="16">16h</option>@endif
-                                @if ($restaurant->tancament_dia == 17) <option value="17" selected="selected">17h</option>@else <option value="17">17h</option>@endif
+                                @if ($restaurant->tancament_dia == '14:00') <option value="14:00" selected="selected">14:00</option>@else <option value="14:00">14:00</option>@endif
+                                @if ($restaurant->tancament_dia == '14:30') <option value="14:30" selected="selected">14:30</option>@else <option value="14:30">14:30</option>@endif
+                                @if ($restaurant->tancament_dia == '15:00') <option value="15:00" selected="selected">15:00</option>@else <option value="15:00">15:00</option>@endif
+                                @if ($restaurant->tancament_dia == '15:30') <option value="15:30" selected="selected">15:30</option>@else <option value="15:30">15:30</option>@endif
+                                @if ($restaurant->tancament_dia == '16:00') <option value="16:00" selected="selected">16:00</option>@else <option value="16:00">16:00</option>@endif
+                                @if ($restaurant->tancament_dia == '16:30') <option value="16:30" selected="selected">16:30</option>@else <option value="16:30">16:30</option>@endif
+                                @if ($restaurant->tancament_dia == '17:00') <option value="17:00" selected="selected">17:00</option>@else <option value="17:00">17:00</option>@endif
                               </select>
                           </div>
                           <label for="horariNit" class="control-label col-md-3">Nit</label>
@@ -126,18 +132,26 @@
                               <strong>de </strong>
                               <!--TODO arreglar formulari-->
                               <select name="horariNitDe" id="horariNitDe">
-                                @if ($restaurant->obertura_nit == 17) <option value="17" selected="selected">17h</option>@else <option value="17">17h</option>@endif
-                                @if ($restaurant->obertura_nit == 18) <option value="18" selected="selected">18h</option>@else <option value="18">18h</option>@endif
-                                @if ($restaurant->obertura_nit == 19) <option value="19" selected="selected">19h</option>@else <option value="19">19h</option>@endif
-                                @if ($restaurant->obertura_nit == 20) <option value="20" selected="selected">20h</option>@else <option value="20">20h</option>@endif
+                                @if ($restaurant->obertura_nit == '17:00') <option value="17:00" selected="selected">17:00</option>@else <option value="17:00">17:00</option>@endif
+                                @if ($restaurant->obertura_nit == '17:30') <option value="17:30" selected="selected">17:30</option>@else <option value="17:30">17:30</option>@endif
+                                @if ($restaurant->obertura_nit == '18:00') <option value="18:00" selected="selected">18:00</option>@else <option value="18:00">18:00</option>@endif
+                                @if ($restaurant->obertura_nit == '18:30') <option value="18:30" selected="selected">18:30</option>@else <option value="18:30">18:30</option>@endif
+                                @if ($restaurant->obertura_nit == '19:00') <option value="19:00" selected="selected">19:00</option>@else <option value="19:00">19:00</option>@endif
+                                @if ($restaurant->obertura_nit == '19:30') <option value="19:30" selected="selected">19:30</option>@else <option value="19:30">19:30</option>@endif
+                                @if ($restaurant->obertura_nit == '20:00') <option value="20:00" selected="selected">20:00</option>@else <option value="20:00">20:00</option>@endif
+                                @if ($restaurant->obertura_nit == '20:30') <option value="20:30" selected="selected">20:30</option>@else <option value="20:30">20:30</option>@endif
+                                @if ($restaurant->obertura_nit == '21:00') <option value="21:00" selected="selected">21:00</option>@else <option value="21:00">21:00</option>@endif
                               </select>
                               <strong>a </strong>
                               <!--TODO arreglar formulari-->
                               <select name="horariNitA" id="horariNitA">
-                                @if ($restaurant->tancament_nit == 21) <option value="21" selected="selected">21h</option>@else <option value="21">21h</option>@endif
-                                @if ($restaurant->tancament_nit == 22) <option value="22" selected="selected">22h</option>@else <option value="22">22h</option>@endif
-                                @if ($restaurant->tancament_nit == 23) <option value="23" selected="selected">23h</option>@else <option value="23">23h</option>@endif
-                                @if ($restaurant->tancament_nit == 00) <option value="00" selected="selected">00h</option>@else <option value="00">00h</option>@endif
+                                @if ($restaurant->tancament_nit == '21:00') <option value="21:00" selected="selected">21:00</option>@else <option value="21:00">21:00</option>@endif
+                                @if ($restaurant->tancament_nit == '21:30') <option value="21:30" selected="selected">21:30</option>@else <option value="21:30">21:30</option>@endif
+                                @if ($restaurant->tancament_nit == '22:00') <option value="22:00" selected="selected">22:00</option>@else <option value="22:00">22:00</option>@endif
+                                @if ($restaurant->tancament_nit == '22:30') <option value="22:30" selected="selected">22:30</option>@else <option value="22:30">22:30</option>@endif
+                                @if ($restaurant->tancament_nit == '23:00') <option value="23:00" selected="selected">23:00</option>@else <option value="23:00">23:00</option>@endif
+                                @if ($restaurant->tancament_nit == '23:30') <option value="23:30" selected="selected">23:30</option>@else <option value="23:30">23:30</option>@endif
+                                @if ($restaurant->tancament_nit == '00:00') <option value="00:00" selected="selected">00:00</option>@else <option value="00:00">00:00</option>@endif
                               </select>
                           </div>
                           <legend>Checklist</legend>
