@@ -19,9 +19,9 @@ class Items extends Model
       $this->Pizza = "close-circle";
       $this->PlatsCombinats = "close-circle";
       $this->Entrepans = "close-circle";
-      $this->ApteCeliacs = "close-circle";
+      $this->Brasa = "close-circle";
       $this->Terrasa = "close-circle";
-      $this->ZonaEsbarjo = "close-circle";
+      $this->Tapes = "close-circle";
       //return $nouItem;
       if($nouItem){
         foreach ($nouItem as $Item) {
@@ -44,9 +44,9 @@ class Items extends Model
         'Pizza' => "close-circle",
         'PlatsCombinats' => "close-circle",
         'Entrepans' => "close-circle",
-        'ApteCeliacs' => "close-circle",
+        'Brasa' => "close-circle",
         'Terrasa' => "close-circle",
-        'ZonaEsbarjo' => "close-circle",
+        'Tapes' => "close-circle",
       ]
     );
     if($Items){foreach ($Items as $Item) {

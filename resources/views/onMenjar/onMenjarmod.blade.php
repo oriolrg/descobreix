@@ -106,6 +106,11 @@
                           <div class="col-md-8">
                               <strong>de </strong>
                               <select name="horariDiaDe" id="horariDiaDe">
+                                @if ($restaurant->obertura_dia == 'NULL') <option value="">Tancat</option> @else  <option value="">Tancat</option>@endif
+                                @if ($restaurant->obertura_dia == '08:00') <option value="08:00" selected="selected">08:00</option>@else <option value="08:00">08:00</option>@endif
+                                @if ($restaurant->obertura_dia == '08:30') <option value="08:30" selected="selected">08:30</option>@else <option value="08:30">08:30</option>@endif
+                                @if ($restaurant->obertura_dia == '09:00') <option value="09:00" selected="selected">09:00</option>@else <option value="09:00">09:00</option>@endif
+                                @if ($restaurant->obertura_dia == '09:30') <option value="09:30" selected="selected">09:30</option>@else <option value="09:30">09:30</option>@endif
                                 @if ($restaurant->obertura_dia == '10:00') <option value="10:00" selected="selected">10:00</option>@else <option value="10:00">10:00</option>@endif
                                 @if ($restaurant->obertura_dia == '10:30') <option value="10:30" selected="selected">10:30</option>@else <option value="10:30">10:30</option>@endif
                                 @if ($restaurant->obertura_dia == '11:00') <option value="11:00" selected="selected">11:00</option>@else <option value="11:00">11:00</option>@endif
@@ -118,6 +123,7 @@
                               <strong>a </strong>
                               <!--TODO arreglar formulari-->
                               <select name="horariDiaA" id="horariDiaA">
+                                @if ($restaurant->obertura_dia == 'NULL') <option value="">Tancat</option> @else  <option value="">Tancat</option>@endif
                                 @if ($restaurant->tancament_dia == '14:00') <option value="14:00" selected="selected">14:00</option>@else <option value="14:00">14:00</option>@endif
                                 @if ($restaurant->tancament_dia == '14:30') <option value="14:30" selected="selected">14:30</option>@else <option value="14:30">14:30</option>@endif
                                 @if ($restaurant->tancament_dia == '15:00') <option value="15:00" selected="selected">15:00</option>@else <option value="15:00">15:00</option>@endif
@@ -132,6 +138,7 @@
                               <strong>de </strong>
                               <!--TODO arreglar formulari-->
                               <select name="horariNitDe" id="horariNitDe">
+                                @if ($restaurant->obertura_dia == 'NULL') <option value="">Tancat</option> @else  <option value="">Tancat</option>@endif
                                 @if ($restaurant->obertura_nit == '17:00') <option value="17:00" selected="selected">17:00</option>@else <option value="17:00">17:00</option>@endif
                                 @if ($restaurant->obertura_nit == '17:30') <option value="17:30" selected="selected">17:30</option>@else <option value="17:30">17:30</option>@endif
                                 @if ($restaurant->obertura_nit == '18:00') <option value="18:00" selected="selected">18:00</option>@else <option value="18:00">18:00</option>@endif
@@ -145,6 +152,7 @@
                               <strong>a </strong>
                               <!--TODO arreglar formulari-->
                               <select name="horariNitA" id="horariNitA">
+                                @if ($restaurant->obertura_dia == 'NULL') <option value="">Tancat</option> @else  <option value="">Tancat</option>@endif
                                 @if ($restaurant->tancament_nit == '21:00') <option value="21:00" selected="selected">21:00</option>@else <option value="21:00">21:00</option>@endif
                                 @if ($restaurant->tancament_nit == '21:30') <option value="21:30" selected="selected">21:30</option>@else <option value="21:30">21:30</option>@endif
                                 @if ($restaurant->tancament_nit == '22:00') <option value="22:00" selected="selected">22:00</option>@else <option value="22:00">22:00</option>@endif
@@ -193,20 +201,20 @@
                                 @else
                                     <input type="checkbox" name="Items[7]" value="Entrepans" />Entrepans<br />
                                 @endif
-                                @if ($item->ApteCeliacs == 'checkmark-circle')
-                                    <input type="checkbox" name="Items[8]" value="ApteCeliacs" checked/>Apte pels celíacs<br />
+                                @if ($item->Brasa == 'checkmark-circle')
+                                    <input type="checkbox" name="Items[8]" value="Brasa" checked/>Brasa<br />
                                 @else
-                                    <input type="checkbox" name="Items[8]" value="ApteCeliacs" />Apte pels celíacs<br />
+                                    <input type="checkbox" name="Items[8]" value="Brasa" />Brasa<br />
                                 @endif
                                 @if ($item->Terrasa == 'checkmark-circle')
                                     <input type="checkbox" name="Items[9]" value="Terrasa" checked/>Terrasa<br />
                                 @else
                                     <input type="checkbox" name="Items[9]" value="Terrasa" />Terrasa<br />
                                 @endif
-                                @if ($item->ZonaEsbarjo == 'checkmark-circle')
-                                    <input type="checkbox" name="Items[10]" value="ZonaEsbarjo" checked/>Zona d’esbarjo<br />
+                                @if ($item->Tapes == 'checkmark-circle')
+                                    <input type="checkbox" name="Items[10]" value="Tapes" checked/>Tapes<br />
                                 @else
-                                    <input type="checkbox" name="Items[10]" value="ZonaEsbarjo" />Zona d’esbarjo<br />
+                                    <input type="checkbox" name="Items[10]" value="Tapes" />Tapes<br />
                                 @endif
                             @endforeach
                           </div>

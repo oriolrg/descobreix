@@ -178,8 +178,8 @@ jQuery(document).ready(function ($) {
             if (r == true) {
                 $.ajax({
                     type: "GET",
-                    url: "/onmenjar/eliminar/"+id,
-                    //url: "/appvallLord/public/onmenjar/eliminar/"+id,
+                    //url: "/onmenjar/eliminar/"+id,
+                    url: "/appvallLord/public/onmenjar/eliminar/"+id,
                     data: dataString,
                     success: function (data) {
                       alert("eliminat");

@@ -68,6 +68,11 @@
                                 <strong>de </strong>
                                 <!--TODO arreglar formulari-->
                                 <select name="horariDiaDe" id="horariDiaDe">
+                                    <option value="">Tancat</option>
+                                    <option value="08:00">08:00</option>
+                                    <option value="08:30">08:30</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:30">09:30</option>
                                     <option value="10:00">10:00</option>
                                     <option value="10:30">10:30</option>
                                     <option value="11:00">11:00</option>
@@ -80,6 +85,7 @@
                                 <strong>a </strong>
                                 <!--TODO arreglar formulari-->
                                 <select name="horariDiaA" id="horariDiaA">
+                                    <option value="">Tancat</option>
                                     <option value="13:30">13:30</option>
                                     <option value="14:00">14:00</option>
                                     <option value="14:30">14:30</option>
@@ -95,6 +101,7 @@
                                 <strong>de </strong>
                                 <!--TODO arreglar formulari-->
                                 <select name="horariNitDe" id="horariNitDe">
+                                    <option value="">Tancat</option>
                                     <option value="17:00">17:00</option>
                                     <option value="17:30">17:30</option>
                                     <option value="18:00">18:00</option>
@@ -108,6 +115,7 @@
                                 <strong>a </strong>
                                 <!--TODO arreglar formulari-->
                                 <select name="horariNitA" id="horariNitA">
+                                  <option value="">Tancat</option>
                                   <option value="21:00">21:00</option>
                                   <option value="21:30">21:30</option>
                                   <option value="22:00">22:00</option>
@@ -127,9 +135,9 @@
                                     <input type="checkbox" name="Items[5]" value="Pizza" />Pizza<br />
                                     <input type="checkbox" name="Items[6]" value="PlatsCombinats" />Plats combinats<br />
                                     <input type="checkbox" name="Items[7]" value="Entrepans" />Entrepans<br />
-                                    <input type="checkbox" name="Items[8]" value="ApteCeliacs" />Apte pels celíacs<br />
+                                    <input type="checkbox" name="Items[8]" value="Brasa" />Brasa<br />
                                     <input type="checkbox" name="Items[9]" value="Terrasa" />Terrasa<br />
-                                    <input type="checkbox" name="Items[10]" value="ZonaEsbarjo" />Zona d’esbarjo<br />
+                                    <input type="checkbox" name="Items[10]" value="Tapes" />Tapes<br />
                             </div>
                             <legend>Imatges</legend>
                             <form id="uploadimage1" action="" method="post" enctype="multipart/form-data">
