@@ -7,31 +7,49 @@ jQuery(document).ready(function ($) {
   $("#ocultafegirRest").hide();
   $("#tableDies").hide();
   $("#tableHoraris").hide();
+  $("#tableUsuaris").hide();
   $("#restaurants").click(function () {
     $("#restaurants").addClass("active");
     $("#dies").removeClass("active");
     $("#hores").removeClass("active");
+    $("#unicUser").removeClass("active");
     $("#tableRestaurants").show();
     $("#tableDies").hide();
     $("#tableHoraris").hide();
+    $("#tableUsuaris").hide();
       //location.reload(true);
   });
   $("#dies").click(function () {
     $("#restaurants").removeClass("active");
     $("#dies").addClass("active");
     $("#hores").removeClass("active");
+    $("#unicUser").removeClass("active");
     $("#tableRestaurants").hide();
     $("#tableDies").show();
     $("#tableHoraris").hide();
+    $("#tableUsuaris").hide();
         //location.reload(true);
   });
   $("#hores").click(function () {
     $("#restaurants").removeClass("active");
     $("#dies").removeClass("active");
     $("#hores").addClass("active");
+    $("#unicUser").removeClass("active");
     $("#tableRestaurants").hide();
     $("#tableDies").hide();
     $("#tableHoraris").show();
+    $("#tableUsuaris").hide();
+          //location.reload(true);
+  });
+  $("#unicUser").click(function () {
+    $("#restaurants").removeClass("active");
+    $("#dies").removeClass("active");
+    $("#hores").removeClass("active");
+    $("#unicUser").addClass("active");
+    $("#tableRestaurants").hide();
+    $("#tableDies").hide();
+    $("#tableHoraris").hide();
+    $("#tableUsuaris").show();
           //location.reload(true);
   });
       // Funio de previsualització de la imatge

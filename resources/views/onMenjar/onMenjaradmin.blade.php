@@ -29,6 +29,7 @@
                     <li class="active" id="restaurants"><a href="#">Restaurants</a></li>
                     <li id="dies"><a href="#">Dies</a></li>
                     <li id="hores"><a href="#">Horaris</a></li>
+                    <li id="unicUser"><a href="#">Usuaris aplicació</a></li>
                   </ul>
                 </div>
                 <table id="tableRestaurants" class="table table-striped">
@@ -130,7 +131,7 @@
                     @foreach($horaris as $key => $horari)
                         <tr>
                             <td class="hora">
-                                {{ $horari->hora}}
+                                {{ $horari->hora}} hores
                             </td>
                             <td class="consultes">
                                 {{ $horari->countHores}}
@@ -139,6 +140,28 @@
                     @endforeach
                     </tbody>
                 </table>
+                <div id="tableUsuaris" class="panel-body">
+                    <div class="col-lg-4 col-md-9">
+
+                    </div>
+                    <div class="row top-row">
+                        <div class="col-lg-4 col-md-9">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <i class="glyphicon glyphicon-eye-open btn-lg"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-right">
+                                            <div id="usuaris_onMenjar" class="huge"><span id="usuaris" class="contadors">0</span></div>
+                                            <div>Usuaris han executat OnMenjar</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Button
                 <div class="form-group">
                    <label class="col-md-4 control-label" for="singlebutton"></label>

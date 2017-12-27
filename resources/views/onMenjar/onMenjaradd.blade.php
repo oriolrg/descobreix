@@ -12,6 +12,9 @@
                   <a class="btn btn-primary" id="ocultafegirRest">
                     <i class="glyphicon glyphicon-minus">  Amaga  </i>
                   </a>
+                  <a class="btn btn-primary" id="estadistiques" href="/appvallLord/public/onmenjar">
+                    <i class="glyphicon glyphicon-search">  Estadístiques  </i>
+                  </a>
                 </div>
 
                 <div class="panel-body" id="formRestaurant">
@@ -44,7 +47,7 @@
                             <label for="soci" class="control-label col-md-3">Marca si és Soci</label>
                             <div class="col-md-9">
                               <input type='hidden' value='0' name='soci'>
-                              <input type="checkbox" name="soci" value="1"/><br />                              
+                              <input type="checkbox" name="soci" value="1"/><br />
                             </div>
                             <label for="preumig" class="control-label col-md-3">Preu mitja</label>
                             <div class="col-md-9">
