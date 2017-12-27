@@ -118,8 +118,8 @@ jQuery(document).ready(function ($) {
         if (r == true) {
             $.ajax({
                 type: "GET",
-                url: "/onmenjar/act/"+id,
-                //url: "/appvallLord/public/onmenjar/act/"+id,
+                //url: "/onmenjar/act/"+id,
+                url: "/appvallLord/public/onmenjar/act/"+id,
                 data: dataString,
                 success: function (data) {
                   alert("activat");
@@ -163,8 +163,8 @@ jQuery(document).ready(function ($) {
           if (r == true) {
               $.ajax({
                   type: "GET",
-                  url: "/onmenjar/desac/"+id,
-                  //url: "/appvallLord/public/onmenjar/desac/"+id,
+                  //url: "/onmenjar/desac/"+id,
+                  url: "/appvallLord/public/onmenjar/desac/"+id,
                   data: dataString,
                   success: function (data) {
                     alert("desactivat");

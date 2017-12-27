@@ -41,6 +41,11 @@
                             <div class="col-md-9">
                                 <input type="text" name="poblacio" id="poblacio" class="form-control" required pattern="[a-zA-Z0-9\s-\u00C7]{1,30}">
                             </div>
+                            <label for="soci" class="control-label col-md-3">Marca si és Soci</label>
+                            <div class="col-md-9">
+                              <input type='hidden' value='0' name='soci'>
+                              <input type="checkbox" name="soci" value="1"/><br />                              
+                            </div>
                             <label for="preumig" class="control-label col-md-3">Preu mitja</label>
                             <div class="col-md-9">
                               <select name="preumig" id="preumig">
@@ -204,7 +209,7 @@
                           <tbody>
                           @foreach($restaurants as $key => $restaurant)
                               <tr class="
-                                  @if ($restaurant->actiu === 1)
+                                  @if ($restaurant->soci === 1)
                                           success
                                   @else
                                           danger

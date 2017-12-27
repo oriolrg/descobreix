@@ -38,6 +38,15 @@
                           <div class="col-md-9">
                               <input type="text" name="poblacio" id="poblacio" class="form-control" value ="{{$restaurant->poblacio}}">
                           </div>
+                          <label for="soci" class="control-label col-md-3">Marca si és Soci</label>
+                          <div class="col-md-9">
+                            <input type='hidden' value='0' name='soci'>
+                            @if ($restaurant->soci == "1")
+                              <input type="checkbox" name="soci" value="1" checked/><br />
+                            @else
+                              <input type="checkbox" name="soci" value="1"/><br />
+                            @endif
+                          </div>
                           <label for="preumig" class="control-label col-md-3">Preu mitja</label>
                           <div class="col-md-9">
                             @if ($restaurant->preu == "10 - 15")
@@ -275,19 +284,7 @@
                   @endforeach
           </div>
       </div>
-            <div class="panel panel-default">
-              <div class="panel-heading">Estadistiques</div>
 
-              <div class="panel-body">
-                  @if (session('status'))
-                      <div class="alert alert-success">
-                          {{ session('status') }}
-                      </div>
-                  @endif
-
-
-              </div>
-            </div>
         </div>
     </div>
 </div>

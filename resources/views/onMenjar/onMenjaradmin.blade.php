@@ -44,7 +44,7 @@
                     <tbody>
                     @foreach($restaurants as $key => $restaurant)
                         <tr class="
-                            @if ($restaurant->actiu === 1)
+                            @if ($restaurant->soci === 1)
                                     success
                             @else
                                     danger

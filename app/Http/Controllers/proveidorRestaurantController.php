@@ -19,10 +19,12 @@ class proveidorRestaurantController extends Controller
     //proveeix dades dels restaurants
     public function proveidor(){
       $hoy = getdate();
-      //return Restaurant::all(),Items::all();
-      $data = collect(Restaurant::where('actiu', 1)->inRandomOrder()->get());
-
+      //Obtenim els restaurants socis
+      $data = collect(Restaurant::where('actiu', 1)->where('soci', 1)->inRandomOrder()->get());
+      //Obtenim els restaurants NO socis
+      $dataNoSoci = collect(Restaurant::where('actiu', 1)->where('soci', 0)->inRandomOrder()->get());
       //return $hoy;
+      $data = $data->merge($dataNoSoci);
       return $data;
     }
 

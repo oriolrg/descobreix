@@ -19,6 +19,7 @@ class Restaurant extends Model
         $this->telefon = $nouRestaurant->get('telefon');
         $this->direccio = $nouRestaurant->get('direccio');
         $this->poblacio = $nouRestaurant->get('poblacio');
+        $this->soci = $nouRestaurant->get('soci');
         $this->preu = $nouRestaurant->get('preuMitja');
         $this->obertura_dia = $nouRestaurant->get('obertura_dia');
         $this->tancament_dia = $nouRestaurant->get('tancament_dia');
@@ -38,6 +39,7 @@ class Restaurant extends Model
               'telefon' => $nouRestaurant->get('telefon'),
               'direccio' => $nouRestaurant->get('direccio'),
               'poblacio' => $nouRestaurant->get('poblacio'),
+              'soci' => $nouRestaurant->get('soci'),
               'preu' => $nouRestaurant->get('preuMitja'),
               'obertura_dia' => $nouRestaurant->get('obertura_dia'),
               'tancament_dia' => $nouRestaurant->get('tancament_dia'),
@@ -54,6 +56,7 @@ class Restaurant extends Model
               'telefon' => $nouRestaurant->get('telefon'),
               'direccio' => $nouRestaurant->get('direccio'),
               'poblacio' => $nouRestaurant->get('poblacio'),
+              'soci' => $nouRestaurant->get('soci'),
               'preu' => $nouRestaurant->get('preuMitja'),
               'obertura_dia' => $nouRestaurant->get('obertura_dia'),
               'tancament_dia' => $nouRestaurant->get('tancament_dia'),
@@ -70,6 +73,7 @@ class Restaurant extends Model
               'telefon' => $nouRestaurant->get('telefon'),
               'direccio' => $nouRestaurant->get('direccio'),
               'poblacio' => $nouRestaurant->get('poblacio'),
+              'soci' => $nouRestaurant->get('soci'),
               'preu' => $nouRestaurant->get('preuMitja'),
               'obertura_dia' => $nouRestaurant->get('obertura_dia'),
               'tancament_dia' => $nouRestaurant->get('tancament_dia'),
@@ -86,6 +90,7 @@ class Restaurant extends Model
               'telefon' => $nouRestaurant->get('telefon'),
               'direccio' => $nouRestaurant->get('direccio'),
               'poblacio' => $nouRestaurant->get('poblacio'),
+              'soci' => $nouRestaurant->get('soci'),
               'preu' => $nouRestaurant->get('preuMitja'),
               'obertura_dia' => $nouRestaurant->get('obertura_dia'),
               'tancament_dia' => $nouRestaurant->get('tancament_dia'),
@@ -113,7 +118,7 @@ class Restaurant extends Model
     }
     public function seleccionarRestaurant($id){
         //TODO afegir contador quan s'accedeix a la consulta del restaurant
-        
+
         return $this->where('id', $id)->get();
 
     }

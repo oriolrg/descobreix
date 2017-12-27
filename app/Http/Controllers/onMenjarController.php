@@ -88,6 +88,7 @@ class onMenjarController extends Controller
             'telefon' => $datos["telefon"],
             'direccio' => $datos["direccio"],
             'poblacio' => $datos["poblacio"],
+            'soci' => $datos["soci"],
             'preuMitja' => $datos["preumig"],
             'obertura_dia' => $datos["horariDiaDe"],
             'tancament_dia' => $datos["horariDiaA"],
@@ -168,6 +169,7 @@ class onMenjarController extends Controller
             'telefon' => $datos["telefon"],
             'direccio' => $datos["direccio"],
             'poblacio' => $datos["poblacio"],
+            'soci' => $datos["soci"],
             'preuMitja' => $datos["preumig"],
             'obertura_dia' => $datos["horariDiaDe"],
             'tancament_dia' => $datos["horariDiaA"],
@@ -192,6 +194,7 @@ class onMenjarController extends Controller
             'telefon' => $datos["telefon"],
             'direccio' => $datos["direccio"],
             'poblacio' => $datos["poblacio"],
+            'soci' => $datos["soci"],
             'preuMitja' => $datos["preumig"],
             'obertura_dia' => $datos["horariDiaDe"],
             'tancament_dia' => $datos["horariDiaA"],
@@ -215,6 +218,7 @@ class onMenjarController extends Controller
             'telefon' => $datos["telefon"],
             'direccio' => $datos["direccio"],
             'poblacio' => $datos["poblacio"],
+            'soci' => $datos["soci"],
             'preuMitja' => $datos["preumig"],
             'obertura_dia' => $datos["horariDiaDe"],
             'tancament_dia' => $datos["horariDiaA"],
@@ -232,6 +236,7 @@ class onMenjarController extends Controller
             'telefon' => $datos["telefon"],
             'direccio' => $datos["direccio"],
             'poblacio' => $datos["poblacio"],
+            'soci' => $datos["soci"],
             'preuMitja' => $datos["preumig"],
             'obertura_dia' => $datos["horariDiaDe"],
             'tancament_dia' => $datos["horariDiaA"],
@@ -243,6 +248,7 @@ class onMenjarController extends Controller
       $dies = collect();
       //return $request;
 
+      //return $nouRestaurant;
       //return $items;
 
       $Restaurant = new Restaurant();
