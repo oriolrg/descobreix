@@ -18,10 +18,20 @@
                 </div>
             </div>
             <div class="panel panel-default">
-              <div class="panel-heading">Estadistiques</div>
+              <div class="panel-heading">
+                Estadistiques
+              </div>
+
 
               <div class="panel-body">
-                <table id="tableAccessos" class="table table-striped">
+                <div>
+                  <ul class="nav nav-tabs">
+                    <li class="active" id="restaurants"><a href="#">Restaurants</a></li>
+                    <li id="dies"><a href="#">Dies</a></li>
+                    <li id="hores"><a href="#">Horaris</a></li>
+                  </ul>
+                </div>
+                <table id="tableRestaurants" class="table table-striped">
                     <thead>
                     <tr>
                         <th>Restaurant</th>
@@ -62,12 +72,84 @@
                         </tr>
                     @endforeach
                     </tbody>
-                </table>
-                <!-- paginació accessos -->
-                {!! $restaurants->links() !!}
 
+                </table>
+
+                <table id="tableDies" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Dia</th>
+                        <th>Consultes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($dies as $key => $dia)
+                        <tr>
+                            <td class="dia">
+                              @switch($dia->dia)
+                                @case(1)
+                                    Dilluns
+                                    @break
+
+                                @case(2)
+                                    Dimarts
+                                    @break
+
+                                @case(3)
+                                    Dimecres
+                                    @break
+                                @case(4)
+                                    Dijous
+                                    @break
+                                @case(5)
+                                    Divendres
+                                    @break
+                                @case(6)
+                                    Dissabte
+                                    @break
+                                @case(7)
+                                    Diumenge
+                                    @break
+                            @endswitch
+                            </td>
+                            <td class="consultes">
+                                {{ $dia->countDia}}
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                <table id="tableHoraris" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Consultes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($horaris as $key => $horari)
+                        <tr>
+                            <td class="hora">
+                                {{ $horari->hora}}
+                            </td>
+                            <td class="consultes">
+                                {{ $horari->countHores}}
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                <!-- Button
+                <div class="form-group">
+                   <label class="col-md-4 control-label" for="singlebutton"></label>
+                   <div class="col-md-4 center-block">
+                      <a id="ressetbutton" name="singlebutton" class="btn btn-danger center-block" href="{{ url('/onmenjar/estadistiquesRes') }}">
+                          <i class="glyphicon glyphicon-trash"></i> Reiniciar Estadístiques
+                       </a>
+                   </div>
+                </div>-->
               </div>
-            </div>
+
         </div>
     </div>
 </div>

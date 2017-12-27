@@ -5,6 +5,35 @@ jQuery(document).ready(function ($) {
   //oculta formulari restaurant
   $("#formRestaurant").hide();
   $("#ocultafegirRest").hide();
+  $("#tableDies").hide();
+  $("#tableHoraris").hide();
+  $("#restaurants").click(function () {
+    $("#restaurants").addClass("active");
+    $("#dies").removeClass("active");
+    $("#hores").removeClass("active");
+    $("#tableRestaurants").show();
+    $("#tableDies").hide();
+    $("#tableHoraris").hide();
+      //location.reload(true);
+  });
+  $("#dies").click(function () {
+    $("#restaurants").removeClass("active");
+    $("#dies").addClass("active");
+    $("#hores").removeClass("active");
+    $("#tableRestaurants").hide();
+    $("#tableDies").show();
+    $("#tableHoraris").hide();
+        //location.reload(true);
+  });
+  $("#hores").click(function () {
+    $("#restaurants").removeClass("active");
+    $("#dies").removeClass("active");
+    $("#hores").addClass("active");
+    $("#tableRestaurants").hide();
+    $("#tableDies").hide();
+    $("#tableHoraris").show();
+          //location.reload(true);
+  });
       // Funio de previsualització de la imatge
     $(function() {
         //mostra formulari restaurant

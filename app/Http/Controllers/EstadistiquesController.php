@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\visitesRestaurant;
+use App\consultesDia;
+use App\consultesHora;
 
 class EstadistiquesController extends Controller
 {
@@ -13,7 +16,7 @@ class EstadistiquesController extends Controller
     public function addDia(Request $request){
 
     }
-    public function addRestaurant(Request $request){
-      
+    public function reset(){
+      return consultesDia::get();
     }
 }

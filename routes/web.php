@@ -1,6 +1,7 @@
 <?php
 use App\Restaurant;
 use App\Http\Resources\Restaurants;
+use App\Http\Controllers\EstadistiquesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,7 @@ Route::post('/onmenjar/post', 'onMenjarController@onMenjarpost')->name('onMenjar
 Route::get('/onmenjar/dell', 'onMenjarController@onMenjardell')->name('onMenjardell');
 Route::post('/onmenjar/mod', 'onMenjarController@onMenjarmod')->name('onMenjarmod');
 Route::post('/onmenjar/mod/post', 'onMenjarController@onMenjarmodpost')->name('onMenjarmodpost');
+Route::get('/onmenjar/estadistiquesRes', 'EstadistiquesController@reset')->name('reset');
 //desactivar restaurant
 Route::get('/onmenjar/desac/{item}', 'onMenjarController@desactivarRestaurant')->name('desactivarRestaurant');
 Route::get('/onmenjar/act/{item}', 'onMenjarController@activarRestaurant')->name('activarRestaurant');
