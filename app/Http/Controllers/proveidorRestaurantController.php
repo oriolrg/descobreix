@@ -7,6 +7,8 @@ use App\Restaurant;
 use App\Items;
 use App\Dies;
 use App\visitesRestaurant;
+use App\consultesDia;
+use App\consultesHora;
 /** retorna dades utils per app
      * @param Request $request
      * @return mixed
@@ -33,6 +35,7 @@ class proveidorRestaurantController extends Controller
       return $data;
     }
     public function proveidorDia($dia){
+      consultesDia::where('dia', $dia)->increment('countDia');
       switch ($dia) {
         case '1':
             $data = collect(Dies::where('dilluns', 1)->select('id')->get());
@@ -72,10 +75,13 @@ class proveidorRestaurantController extends Controller
       }
     }
     public function proveidorHora($hora){
+        consultesHora::where('hora', $hora)->increment('countHores');
         $Restaurant = new Restaurant();
         return $Restaurant->seleccionarRestaurantHora($hora);
     }
     public function proveidorDiaHora($dia,$hora){
+      consultesDia::where('dia', $dia)->increment('countDia');
+      consultesHora::where('hora', $hora)->increment('countHores');
       switch ($dia) {
         case '1':
             $data = collect(Dies::where('dilluns', 1)->select('id')->get());
