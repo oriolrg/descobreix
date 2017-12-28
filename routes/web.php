@@ -38,9 +38,10 @@ Route::get('/onmenjar/estadistiquesRes', 'EstadistiquesController@reset')->name(
 Route::get('/onmenjar/desac/{item}', 'onMenjarController@desactivarRestaurant')->name('desactivarRestaurant');
 Route::get('/onmenjar/act/{item}', 'onMenjarController@activarRestaurant')->name('activarRestaurant');
 Route::get('/onmenjar/eliminar/{item}', 'onMenjarController@borrarRestaurant')->name('borrarRestaurant');
-//borrar restaurant
 Route::get('/onmenjar/borrar/{item}', 'onMenjarController@borrarRestaurant')->name('borrarRestaurant');
-Route::get('/restaurant', 'proveidorRestaurantController@proveidor')->name('proveidorRestaurantController@proveidor');
+//Rutes API
+Route::get('/restaurant', 'proveidorRestaurantController@proveidornoUuid')->name('proveidorRestaurantController@proveidornoUuid');
+Route::get('/restaurant/{uuid}', 'proveidorRestaurantController@proveidor')->name('proveidorRestaurantController@proveidor');
 Route::get('/restaurant/diahora/{dia}/{hora}', 'proveidorRestaurantController@proveidorDiaHora')->name('proveidorRestaurantController@proveidorDiaHora');
 Route::get('/restaurant/hora/{hora}', 'proveidorRestaurantController@proveidorHora')->name('proveidorRestaurantController@proveidorHora');
 Route::get('/restaurant/dia/{dia}', 'proveidorRestaurantController@proveidorDia')->name('proveidorRestaurantController@proveidorDia');

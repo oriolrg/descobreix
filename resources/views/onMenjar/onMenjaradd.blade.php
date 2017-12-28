@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+              <div class="panel-heading">Administra onMenjar</div>
                 <div class="panel-heading">
                   <a class="btn btn-primary" id="afegirRest">
                     <i class="glyphicon glyphicon-plus">  Afegir Restaurant  </i>
@@ -200,12 +201,13 @@
                     <div class="panel-body">
                       <div class="panel-heading">
                       <!-- Taula accessos -->
-                      <table id="tableAccessos" class="table table-striped">
+                      <table id="tableRestaurants" class="table table-striped">
                           <thead>
                           <tr>
-                              <th>Restaurant</th>
-                              <th>Població</th>
-                              <th>Visible</th>
+                              <th>Socis<span></span></th>
+                              <th>Restaurant<span></span></th>
+                              <th>Població<span></span></th>
+                              <th>Visible<span></span></th>
                               <th>Imatge principal</th>
                           </tr>
                           </thead>
@@ -218,6 +220,13 @@
                                           danger
                                   @endif
                                   " id="{{ $restaurant->id }}">
+                                  <td class="soci">
+                                    @if ($restaurant->soci === 1)
+                                            Soci
+                                    @else
+                                            No soci
+                                    @endif
+                                  </td>
                                   <td class="nom">
                                       {{ $restaurant->nom}}
                                   </td>
@@ -251,17 +260,13 @@
                                             </button>
                                             </lavel>
                                         @endif
-
-                                    </td>
-                                    <td>
                                         <lavel id ="eliminar">
                                           <button type="submit" class="btn btn-danger btn-xs" name="id_restaurant" value="{{ $restaurant->id}}"
                                                   data-content="Eliminar definitivament el restaurant" title="Eliminar" data-toggle="popover" data-trigger="hover">
                                               <i class="glyphicon glyphicon-remove"> Eliminar </i>
                                           </button>
                                         </lavel>
-                                    </td>
-                                    <td>
+
                                       <lavel id ="modificar">
                                         <!--<form action="/onmenjar/mod" method="POST">-->
                                         <form action="/appvallLord/public/onmenjar/mod" method="POST">

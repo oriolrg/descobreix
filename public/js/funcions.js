@@ -262,6 +262,30 @@ jQuery(document).ready(function ($) {
             }
             //location.reload(true);
           });
+          $(function() {
+            // Ordenar taula des de client.
+            $("#tableRestaurants").tablesorter({
+                theme : 'blue',
+
+                headers: {3:{sorter:false}}
+            });
+            $("#tableHoraris").tablesorter({
+                theme : 'blue',
+
+                headers: {0:{sorter:false}}
+            });
+            $("#tableDies").tablesorter({
+                theme : 'blue',
+
+                headers: {0:{sorter:false}}
+            });
+            /*$("#tableConfirmarSancio").tablesorter({
+                theme : 'blue',
+                // primera i segona columna ordenades a mes
+                sortList: [[],[1,0]],
+                headers: {2:{sorter:false},3:{sorter:false},4:{sorter:false}}
+            });*/
+        });
 
 
 });

@@ -1,0 +1,36 @@
+.contadors{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px;
+}
+.table {
+   margin: 0 auto;
+}
+.table thead {
+   cursor: pointer;
+}
+.table thead tr th {
+   font-weight: bold;
+   color: #5882FA;
+   padding: 10px 20px;
+}
+.table thead tr th span {
+   padding-right: 20px;
+   background-repeat: no-repeat;
+   background-position: 100% 55%;
+}
+.table thead tr th span {
+   background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+}
+.table thead tr th.headerSortUp span {
+   background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+}
+.table thead tr th.headerSortDown span {
+   background-image: url('http://tablesorter.com/themes/blue/desc.gif');
+}
+.table tbody tr td {
+   padding: 10px 20px;
+}
+.table tbody tr td.align-left {
+   text-align: left;
+}

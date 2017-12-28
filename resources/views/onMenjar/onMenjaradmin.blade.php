@@ -32,14 +32,15 @@
                     <li id="unicUser"><a href="#">Usuaris aplicació</a></li>
                   </ul>
                 </div>
-                <table id="tableRestaurants" class="table table-striped">
+                <table id="tableRestaurants" class="table table-striped tablesorter">
                     <thead>
                     <tr>
-                        <th>Restaurant</th>
-                        <th>Població</th>
-                        <th>Visible</th>
+                        <th>Socis<span></span></th>
+                        <th>Restaurant<span></span></th>
+                        <th>Població<span></span></th>
+                        <th>Visible<span></span></th>
                         <th>Imatge principal</th>
-                        <th>Numero Visites</th>
+                        <th>Numero Visites<span></span></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -51,6 +52,13 @@
                                     danger
                             @endif
                             " id="{{ $restaurant->id }}">
+                            <td class="soci">
+                              @if ($restaurant->soci === 1)
+                                      Soci
+                              @else
+                                      No soci
+                              @endif
+                            </td>
                             <td class="nom">
                                 {{ $restaurant->nom}}
                             </td>
@@ -80,7 +88,7 @@
                     <thead>
                     <tr>
                         <th>Dia</th>
-                        <th>Consultes</th>
+                        <th>Consultes<span></span></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -124,7 +132,7 @@
                     <thead>
                     <tr>
                         <th>Hora</th>
-                        <th>Consultes</th>
+                        <th>Consultes<span></span></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -142,7 +150,19 @@
                 </table>
                 <div id="tableUsuaris" class="panel-body">
                     <div class="col-lg-4 col-md-9">
-
+                      <div class="panel panel-warning">
+                          <div class="panel-heading">
+                              <div class="row">
+                                  <div class="col-xs-3">
+                                      <i class="glyphicon glyphicon-eye-open btn-lg"></i>
+                                  </div>
+                                  <div class="col-xs-9 text-right">
+                                      <div id="usuaris_onMenjar" class="huge"><span id="usuaris" class="contadors">0</span></div>
+                                      <div>Usuaris unics AppValldeLord onMenjar</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
                     </div>
                     <div class="row top-row">
                         <div class="col-lg-4 col-md-9">
@@ -153,8 +173,8 @@
                                             <i class="glyphicon glyphicon-eye-open btn-lg"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div id="usuaris_onMenjar" class="huge"><span id="usuaris" class="contadors">0</span></div>
-                                            <div>Usuaris han executat OnMenjar</div>
+                                            <div id="usuaris_onMenjar" class="huge"><span id="usuaris" class="contadors">{{ $execucions[0]->count_accessos}}</span></div>
+                                            <div>Execucions AppValldeLord onMenjar</div>
                                         </div>
                                     </div>
                                 </div>

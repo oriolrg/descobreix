@@ -9,6 +9,7 @@ use App\Dies;
 use App\visitesRestaurant;
 use App\consultesDia;
 use App\consultesHora;
+use App\consultesApp;
 /** retorna dades utils per app
      * @param Request $request
      * @return mixed
@@ -17,14 +18,19 @@ class proveidorRestaurantController extends Controller
 {
 
     //proveeix dades dels restaurants
-    public function proveidor(){
-      $hoy = getdate();
-      //Obtenim els restaurants socis
+    public function proveidornoUuid(){
+      //Obtenim els restaurants socis i unim amb els no socis per mantenir diferenciació
+      consultesApp::where('id', 1)->increment('count_accessos');
       $data = collect(Restaurant::where('actiu', 1)->where('soci', 1)->inRandomOrder()->get());
-      //Obtenim els restaurants NO socis
-      $dataNoSoci = collect(Restaurant::where('actiu', 1)->where('soci', 0)->inRandomOrder()->get());
-      //return $hoy;
-      $data = $data->merge($dataNoSoci);
+      $data = $data->merge(collect(Restaurant::where('actiu', 1)->where('soci', 0)->inRandomOrder()->get()));
+      return $data;
+    }
+    //proveeix dades dels restaurants amb uuid
+    public function proveidor($uuid){
+
+      //Obtenim els restaurants socis i unim amb els no socis per mantenir diferenciació
+      $data = collect(Restaurant::where('actiu', 1)->where('soci', 1)->inRandomOrder()->get());
+      $data = $data->merge(collect(Restaurant::where('actiu', 1)->where('soci', 0)->inRandomOrder()->get()));
       return $data;
     }
 
