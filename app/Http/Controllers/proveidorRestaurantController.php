@@ -10,6 +10,7 @@ use App\visitesRestaurant;
 use App\consultesDia;
 use App\consultesHora;
 use App\consultesApp;
+use App\usersApp;
 /** retorna dades utils per app
      * @param Request $request
      * @return mixed
@@ -27,11 +28,22 @@ class proveidorRestaurantController extends Controller
     }
     //proveeix dades dels restaurants amb uuid
     public function proveidor($uuid){
-
+      consultesApp::where('id', 1)->increment('count_accessos');
+      $usersApp = new usersApp();
+      if( count($usersApp->where('uuid', $uuid)->get()) == 0)
+      {
+        $usersApp->uuid = $uuid;
+        $usersApp->save();
+      }
+      //$usersApp->uuid = $uuid;
+      //$usersApp->save();
+      usersApp::where('uuid', $uuid)->increment('connexions');
       //Obtenim els restaurants socis i unim amb els no socis per mantenir diferenciació
       $data = collect(Restaurant::where('actiu', 1)->where('soci', 1)->inRandomOrder()->get());
       $data = $data->merge(collect(Restaurant::where('actiu', 1)->where('soci', 0)->inRandomOrder()->get()));
       return $data;
+
+
     }
 
     public function proveidorItem($id){

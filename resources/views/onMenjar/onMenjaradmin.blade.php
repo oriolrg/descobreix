@@ -157,8 +157,25 @@
                                       <i class="glyphicon glyphicon-eye-open btn-lg"></i>
                                   </div>
                                   <div class="col-xs-9 text-right">
-                                      <div id="usuaris_onMenjar" class="huge"><span id="usuaris" class="contadors">0</span></div>
-                                      <div>Usuaris unics AppValldeLord onMenjar</div>
+                                      <div id="usuaris_onMenjar" class="huge"><span id="usuaris" class="contadors">{{ $count}}</span></div>
+                                      <div>Usuaris unics de l'aplicació onMenjar</div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-9">
+                      <div class="panel panel-warning">
+                          <div class="panel-heading">
+                              <div class="row">
+                                  <div class="col-xs-3">
+                                      <i class="glyphicon glyphicon-eye-open btn-lg"></i>
+                                  </div>
+                                  <div class="col-xs-9 text-right">
+                                      <div id="usuaris_onMenjar" class="huge"></div>
+                                      <div>Els usuaris usen de mitjana </div>
+                                      <span id="usuaris" class="contadors">{{ $mitjana}}</span>
+                                      <div>vegades l'aplicació</div>
                                   </div>
                               </div>
                           </div>

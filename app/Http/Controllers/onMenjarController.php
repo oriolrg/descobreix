@@ -10,6 +10,7 @@ use App\visitesRestaurant;
 use App\consultesDia;
 use App\consultesHora;
 use App\consultesApp;
+use App\usersApp;
 use Illuminate\Http\Request;
 
 class onMenjarController extends Controller
@@ -40,8 +41,16 @@ class onMenjarController extends Controller
         $horaris = consultesHora::get();
         $dies = consultesDia::get();
         $execucions = consultesApp::get();
-        //return $restaurants-;
-        return view('onMenjar/onMenjaradmin')->with('restaurants', $restaurants)->with('horaris', $horaris)->with('dies', $dies)->with('execucions', $execucions);
+        $userApp = new usersApp();
+        $mitjana = $userApp->mitjanaUsers();
+        $count = $userApp->countUsers();
+        return view('onMenjar/onMenjaradmin')
+          ->with('restaurants', $restaurants)
+          ->with('horaris', $horaris)
+          ->with('dies', $dies)
+          ->with('execucions', $execucions)
+          ->with('mitjana', $mitjana)
+          ->with('count', $count);
     }
     /** Crida el model per llistar tots els accessos
          * @return mixed
