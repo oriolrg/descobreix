@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Restaurant;
 use App\Items;
-use App\Horari;
 use App\Dies;
 use App\visitesRestaurant;
 use App\consultesDia;
@@ -26,13 +25,10 @@ class onMenjarController extends Controller
     }
 
     /**
-     *
-     *Administració general on menjar
-     *
+     * @return llista restaurants, horaris, dies, execucions, mitjana i count
      */
     public function index()
     {
-        //TODO afegir mostra restaurants amb numero visites
         //return $restaurants;
         $restaurant = new Restaurant();
         //Es pagina el resultat
@@ -53,7 +49,7 @@ class onMenjarController extends Controller
           ->with('count', $count);
     }
     /** Crida el model per llistar tots els accessos
-         * @return mixed
+         * @return llista de restaurants
          */
     public function llistarRestaurants()
     {
@@ -63,8 +59,7 @@ class onMenjarController extends Controller
         return $restaurants;
     }
     /**
-     *
-     *Afegir restaurant
+     * @return retorna la vista d'afegir restaurants
      *
      */
     public function onMenjaradd()
@@ -73,12 +68,12 @@ class onMenjarController extends Controller
         return view('onMenjar/onMenjaradd')->with('restaurants', $restaurants);
 
     }
+    /** Afegeix informacio sobre nous restaurants
+     * @param Request $request
+     * @return redirecciona a /onmenjar/add després d'actualitzar les dades
+     */
     public function onMenjarpost(Request $request)
     {
-        //TODO Validar formulari
-
-        //separem camp fitxer
-        //return $request;
         $fileprincipal = $request->file('file1');
         $filesecundari = $request->file('file2');
 
@@ -112,14 +107,8 @@ class onMenjarController extends Controller
         $Item = new Items();
         $Dies = new Dies();
         $Visites = new visitesRestaurant();
-        //return $Item->insertItem($request->Items);
-        //return $request->Items;
-        //insertar nou restaurant
-        //TODO falta configurar resposta necessaria
-        //return $Item->insertItem($request->Items);
         if($Restaurant->insertRestaurant($nouRestaurant))
         {
-            //$restaurant = Restaurant::find(Input::get('id'));
             if($Dies->insertDia($request->Dies)){
                 if($Item->insertItem($request->Items)==true){
                     $Visites->insertFirstVisit();
@@ -138,10 +127,10 @@ class onMenjarController extends Controller
     {
         return view('onMenjar/onMenjardell');
     }
+
     /**
-     *
-     *Modificar restaurant
-     *
+     * @param Request $request
+     * @return view onMenjar/onMenjarmod amb dades de restaurant, hores i items
      */
     public function onMenjarmod(Request $request)
     {
@@ -157,10 +146,13 @@ class onMenjarController extends Controller
         //return $dataDia;
         return view('onMenjar/onMenjarmod')->with('dataRestaurant',$dataRestaurant)->with('dataItem',$dataItem)->with('dataDia',$dataDia);
     }
+
+    /**
+     * @param Request $request
+     * @return redirecciona a /onmenjar/add després d'actualitzar les dades
+     */
     public function onMenjarmodpost(Request $request)
     {
-
-      //return $request;
       if($request->file('file1')&&$request->file('file2')){
         $fileprincipal = $request->file('file1');
         $filesecundari = $request->file('file2');
@@ -241,7 +233,6 @@ class onMenjarController extends Controller
       else{
         $json = $request->input();
         $datos = json_decode(json_encode($json), true);
-        //Preparació dades bbdd
         $nouRestaurant = collect([
             'nom' => $datos["nomestabliment"],
             'telefon' => $datos["telefon"],
@@ -255,38 +246,39 @@ class onMenjarController extends Controller
             'tancament_nit' => $datos["horariNitA"]
         ]);
       }
-      //TODO crear model i afegir a bbdd
-      $dies = collect();
-      //return $request;
-
-      //return $nouRestaurant;
-      //return $items;
 
       $Restaurant = new Restaurant();
-      //return $Restaurant;
       $Item = new Items();
 
       $Dies = new Dies();
       $Restaurant->updateRestaurant($nouRestaurant, $datos["id"]);
       $Item->updateItem($request->Items, $datos["id"]);
       $Dies->updateDies($request->Dies, $datos["id"]);
-        //$items = new Item();
-        //$dies = new Dies();
-        //$dataRestaurant = $restaurant->seleccionarRestaurant($request->input('id_restaurant'));
       return redirect('/onmenjar/add');
     }
+
+    /** Desactiva visivilitat restaurant
+     * @param $id
+     * @return retorna a pàgina anterior
+     */
     public function desactivarRestaurant($id){
 
         $Restaurant = new Restaurant();
         $Restaurant->desactivarRestaurant($id);
         return redirect()->back();
     }
+    /** Aesactiva visivilitat restaurant
+     * @param $id
+     * @return retorna a pàgina anterior
+     */
     public function activarRestaurant($id){
-        //return $request;
         $Restaurant = new Restaurant();
         $Restaurant->activarRestaurant($id);
         return redirect()->back();
-    }
+    }/** Borra restaurant
+     * @param $id
+     * @return retorna a pàgina anterior
+     */
     public function borrarRestaurant($id){
         $Restaurant = new Restaurant();
         $Restaurant->borrarRestaurant($id);

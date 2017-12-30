@@ -11,4 +11,12 @@ class consultesHora extends Model
   public function getConsultesHora(){
       return $this->orderBy('id', 'asc');
   }
+  public function reiniciarContador(){
+      $consultesHora = $this->all();
+      foreach ($consultesHora as $key => $hora) {
+          $this->where('id', $hora->id)
+          ->update(['countHores' => 0]);
+      }
+
+  }
 }

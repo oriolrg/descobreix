@@ -25,20 +25,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+//routes vistes on menjar
 Route::get('/onmenjar', 'onMenjarController@index')->name('index');
 Route::get('/onmenjar/add', 'onMenjarController@onMenjaradd')->name('onMenjaradd');
-//Route::get('/onmenjar/post', 'onMenjarController@onMenjarpost')->name('onMenjarpost');
 Route::post('/onmenjar/post', 'onMenjarController@onMenjarpost')->name('onMenjarpost');
 Route::get('/onmenjar/dell', 'onMenjarController@onMenjardell')->name('onMenjardell');
 Route::post('/onmenjar/mod', 'onMenjarController@onMenjarmod')->name('onMenjarmod');
 Route::post('/onmenjar/mod/post', 'onMenjarController@onMenjarmodpost')->name('onMenjarmodpost');
 Route::get('/onmenjar/estadistiquesRes', 'EstadistiquesController@reset')->name('reset');
-//desactivar restaurant
 Route::get('/onmenjar/desac/{item}', 'onMenjarController@desactivarRestaurant')->name('desactivarRestaurant');
 Route::get('/onmenjar/act/{item}', 'onMenjarController@activarRestaurant')->name('activarRestaurant');
 Route::get('/onmenjar/eliminar/{item}', 'onMenjarController@borrarRestaurant')->name('borrarRestaurant');
 Route::get('/onmenjar/borrar/{item}', 'onMenjarController@borrarRestaurant')->name('borrarRestaurant');
+Route::post('/onmenjar/reiniciarcontadors', 'estadistiquesController@reiniciarContadors')->name('reiniciarContadors');
 //Rutes API
 Route::get('/restaurant', 'proveidorRestaurantController@proveidornoUuid')->name('proveidorRestaurantController@proveidornoUuid');
 Route::get('/restaurant/{uuid}', 'proveidorRestaurantController@proveidor')->name('proveidorRestaurantController@proveidor');

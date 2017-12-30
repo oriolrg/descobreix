@@ -18,4 +18,11 @@ class visitesRestaurant extends Model
   public function borrarRestaurantVisita($id){
       return $this->where('idRestaurant', $id)->delete();
   }
+  public function reiniciarContador(){
+      $consultesVisitaRestaurant = $this->all();
+      foreach ($consultesVisitaRestaurant as $key => $VisitaRestaurant) {
+          $this->where('id', $VisitaRestaurant->id)
+              ->update(['countVisitaRestaurant' => 0]);
+      }
+  }
 }

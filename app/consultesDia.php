@@ -14,4 +14,11 @@ class consultesDia extends Model
       //llista errors borrats, no utilitzat
       //return $this->where('borrat',0)->orderBy('data_acces', 'desc');
   }
+  public function reiniciarContador(){
+      $consultesDia = $this->all();
+      foreach ($consultesDia as $key => $dia) {
+          $this->where('id', $dia->id)
+               ->update(['countDia' => 0]);
+      }
+  }
 }

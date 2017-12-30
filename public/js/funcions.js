@@ -120,14 +120,14 @@ jQuery(document).ready(function ($) {
         $('#previewing1').attr('src', e.target.result);
         $('#previewing1').attr('width', '250px');
         $('#previewing1').attr('height', '230px');
-    };
+    }
     function imageIsLoaded2(e) {
         $("#file2").css("color","green");
         $('#image_preview2').css("display", "block");
         $('#previewing2').attr('src', e.target.result);
         $('#previewing2').attr('width', '250px');
         $('#previewing2').attr('height', '230px');
-    };
+    }
     //activar desactivar restaurant
     $("#activar button").click(function () {
         var id = $(this).val();
@@ -168,7 +168,7 @@ jQuery(document).ready(function ($) {
                         msg = 'Uncaught Error.\n' + jqXHR.responseText;
                         alert(msg);
                     }
-                },
+                }
             });
         }
         //location.reload(true);
@@ -212,7 +212,7 @@ jQuery(document).ready(function ($) {
                           msg = 'Uncaught Error.\n' + jqXHR.responseText;
                           alert(msg);
                       }
-                  },
+                  }
               });
           }
           //location.reload(true);
@@ -257,7 +257,7 @@ jQuery(document).ready(function ($) {
                             msg = 'Uncaught Error.\n' + jqXHR.responseText;
                             alert(msg);
                         }
-                    },
+                    }
                 });
             }
             //location.reload(true);
@@ -286,6 +286,50 @@ jQuery(document).ready(function ($) {
                 headers: {2:{sorter:false},3:{sorter:false},4:{sorter:false}}
             });*/
         });
-
+    $("#resset button").click(function () {
+        var id = $(this).val();
+        var r = confirm('Estas segur que vols reiniciar les estadístiques i posar-les a 0?');
+        if (r == true) {
+            var _token = $("input[name='_token']").val();
+            $.ajax({
+                url: "http://lavalldelord.com/appvallLord/public/onmenjar/reiniciarcontadors",
+                type:'POST',
+                data: {_token:_token},
+                success: function(data) {
+                    if($.isEmptyObject(data.error)){
+                        alert("Estadistiques reiniciades");
+                        location.reload(true);
+                    }else{
+                        console.log(data.error);
+                    }
+                },
+                error: function (jqXHR, exception) {
+                    var msg = '';
+                    if (jqXHR.status === 0) {
+                        msg = 'Not connect.\n Verify Network.';
+                        alert(msg);
+                    } else if (jqXHR.status == 404) {
+                        msg = 'Requested page not found. [404]';
+                        alert(msg);
+                    } else if (jqXHR.status == 500) {
+                        msg = 'Internal Server Error [500].';
+                        alert(msg);
+                    } else if (exception === 'parsererror') {
+                        msg = 'Requested JSON parse failed.';
+                        alert(msg);
+                    } else if (exception === 'timeout') {
+                        msg = 'Time out error.';
+                        alert(msg);
+                    } else if (exception === 'abort') {
+                        msg = 'Ajax request aborted.';
+                        alert(msg);
+                    } else {
+                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        alert(msg);
+                    }
+                }
+            });
+        }
+    });
 
 });

@@ -199,15 +199,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- Button
-                <div class="form-group">
-                   <label class="col-md-4 control-label" for="singlebutton"></label>
-                   <div class="col-md-4 center-block">
-                      <a id="ressetbutton" name="singlebutton" class="btn btn-danger center-block" href="{{ url('/onmenjar/estadistiquesRes') }}">
-                          <i class="glyphicon glyphicon-trash"></i> Reiniciar Estadístiques
-                       </a>
-                   </div>
-                </div>-->
+                  <lavel id ="resset">
+                      <button type="submit" class="btn btn-danger btn-xs" name="id_restaurant" value=""
+                              data-content="Reiniciar valors estadistics" title="Resset" data-toggle="popover" data-trigger="hover">
+                          <i class="glyphicon glyphicon-remove"> {{ csrf_field() }} Reiniciar estadístiques </i>
+                      </button>
+                  </lavel>
               </div>
 
         </div>
