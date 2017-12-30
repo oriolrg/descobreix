@@ -128,141 +128,54 @@ jQuery(document).ready(function ($) {
         $('#previewing2').attr('width', '250px');
         $('#previewing2').attr('height', '230px');
     }
-    //activar desactivar restaurant
+    /**
+     * Activa el restaurant com a visible
+     */
     $("#activar button").click(function () {
         var id = $(this).val();
         var dataString = 'id_restaurant='+id;
         var r = confirm('Estas segur que vols activar-lo?');
         if (r == true) {
-            $.ajax({
-                type: "GET",
-                //url: "/onmenjar/act/"+id,
-                url: "/appvallLord/public/onmenjar/act/"+id,
-                data: dataString,
-                success: function (data) {
-                  alert("activat");
-                  location.reload(true);
-                    //$("#" + id).remove();
-                },
-                error: function (jqXHR, exception) {
-                    var msg = '';
-                    if (jqXHR.status === 0) {
-                        msg = 'Not connect.\n Verify Network.';
-                        alert(msg);
-                    } else if (jqXHR.status == 404) {
-                        msg = 'Requested page not found. [404]';
-                        alert(msg);
-                    } else if (jqXHR.status == 500) {
-                        msg = 'Internal Server Error [500].';
-                        alert(msg);
-                    } else if (exception === 'parsererror') {
-                        msg = 'Requested JSON parse failed.';
-                        alert(msg);
-                    } else if (exception === 'timeout') {
-                        msg = 'Time out error.';
-                        alert(msg);
-                    } else if (exception === 'abort') {
-                        msg = 'Ajax request aborted.';
-                        alert(msg);
-                    } else {
-                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                        alert(msg);
-                    }
-                }
-            });
+            var tipus = 'GET';
+            var url = "/appvallLord/public/onmenjar/act/"+id;
+            var data = dataString;
+            ajax(data, tipus, url);
         }
         //location.reload(true);
       });
-      // desactivar restaurant
+    /**
+     * Desactiva el restaurant com a visible
+     */
       $("#desactivar button").click(function () {
           var id = $(this).val();
           var dataString = 'id_restaurant='+id;
           var r = confirm('Estas segur que vols desactivar-lo?');
           if (r == true) {
-              $.ajax({
-                  type: "GET",
-                  //url: "/onmenjar/desac/"+id,
-                  url: "/appvallLord/public/onmenjar/desac/"+id,
-                  data: dataString,
-                  success: function (data) {
-                    alert("desactivat");
-                    location.reload(true);
-                  },
-                  error: function (jqXHR, exception) {
-                      var msg = '';
-                      if (jqXHR.status === 0) {
-                          msg = 'Not connect.\n Verify Network.';
-                          alert(msg);
-                      } else if (jqXHR.status == 404) {
-                          msg = 'Requested page not found. [404]';
-                          alert(msg);
-                      } else if (jqXHR.status == 500) {
-                          msg = 'Internal Server Error [500].';
-                          alert(msg);
-                      } else if (exception === 'parsererror') {
-                          msg = 'Requested JSON parse failed.';
-                          alert(msg);
-                      } else if (exception === 'timeout') {
-                          msg = 'Time out error.';
-                          alert(msg);
-                      } else if (exception === 'abort') {
-                          msg = 'Ajax request aborted.';
-                          alert(msg);
-                      } else {
-                          msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                          alert(msg);
-                      }
-                  }
-              });
+              var tipus = 'GET';
+              var url = "/appvallLord/public/onmenjar/desac/"+id;
+              var data = dataString;
+              ajax(data, tipus, url);
           }
-          //location.reload(true);
         });
-        //eliminar restaurant
+    /**
+     * Elimina restaurant
+     */
         $("#eliminar button").click(function () {
             var id = $(this).val();
             var dataString = 'id_restaurant='+id;
             var r = confirm('Estas segur que vols eliminar-lo?');
             if (r == true) {
-                $.ajax({
-                    type: "GET",
-                    //url: "/onmenjar/eliminar/"+id,
-                    url: "/appvallLord/public/onmenjar/eliminar/"+id,
-                    data: dataString,
-                    success: function (data) {
-                      alert("eliminat");
-                      location.reload(true);
-                        //$("#" + id).remove();
-                    },
-                    error: function (jqXHR, exception) {
-                        var msg = '';
-                        if (jqXHR.status === 0) {
-                            msg = 'Not connect.\n Verify Network.';
-                            alert(msg);
-                        } else if (jqXHR.status == 404) {
-                            msg = 'Requested page not found. [404]';
-                            alert(msg);
-                        } else if (jqXHR.status == 500) {
-                            msg = 'Internal Server Error [500].';
-                            alert(msg);
-                        } else if (exception === 'parsererror') {
-                            msg = 'Requested JSON parse failed.';
-                            alert(msg);
-                        } else if (exception === 'timeout') {
-                            msg = 'Time out error.';
-                            alert(msg);
-                        } else if (exception === 'abort') {
-                            msg = 'Ajax request aborted.';
-                            alert(msg);
-                        } else {
-                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                            alert(msg);
-                        }
-                    }
-                });
+                var tipus = 'GET';
+                var url = "/appvallLord/public/onmenjar/eliminar/"+id;
+                var data = dataString;
+                ajax(data, tipus, url);
             }
-            //location.reload(true);
+
           });
-          $(function() {
+    /**
+     * Ordena els valors de les seguents taules
+     */
+    $(function() {
             // Ordenar taula des de client.
             $("#tableRestaurants").tablesorter({
                 theme : 'blue',
@@ -286,50 +199,61 @@ jQuery(document).ready(function ($) {
                 headers: {2:{sorter:false},3:{sorter:false},4:{sorter:false}}
             });*/
         });
+    /**
+     * Reinicía les estadístiques a 0
+     */
     $("#resset button").click(function () {
         var id = $(this).val();
         var r = confirm('Estas segur que vols reiniciar les estadístiques i posar-les a 0?');
         if (r == true) {
             var _token = $("input[name='_token']").val();
-            $.ajax({
-                url: "http://lavalldelord.com/appvallLord/public/onmenjar/reiniciarcontadors",
-                type:'POST',
-                data: {_token:_token},
-                success: function(data) {
-                    if($.isEmptyObject(data.error)){
-                        alert("Estadistiques reiniciades");
-                        location.reload(true);
-                    }else{
-                        console.log(data.error);
-                    }
-                },
-                error: function (jqXHR, exception) {
-                    var msg = '';
-                    if (jqXHR.status === 0) {
-                        msg = 'Not connect.\n Verify Network.';
-                        alert(msg);
-                    } else if (jqXHR.status == 404) {
-                        msg = 'Requested page not found. [404]';
-                        alert(msg);
-                    } else if (jqXHR.status == 500) {
-                        msg = 'Internal Server Error [500].';
-                        alert(msg);
-                    } else if (exception === 'parsererror') {
-                        msg = 'Requested JSON parse failed.';
-                        alert(msg);
-                    } else if (exception === 'timeout') {
-                        msg = 'Time out error.';
-                        alert(msg);
-                    } else if (exception === 'abort') {
-                        msg = 'Ajax request aborted.';
-                        alert(msg);
-                    } else {
-                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                        alert(msg);
-                    }
-                }
-            });
+            var tipus = 'POST';
+            var url = "http://lavalldelord.com/appvallLord/public/onmenjar/reiniciarcontadors";
+            var data = {_token:_token}
+            ajax(data, tipus, url);
         }
     });
+    /**
+     * Executa ajax amb les dades passades
+     */
+    function ajax(data, tipus, url){
+        $.ajax({
+            url: url,
+            type: tipus,
+            data: data,
+            success: function(data) {
+                if($.isEmptyObject(data.error)){
+                    location.reload(true);
+                }else{
+                    console.log(data.error);
+                }
+            },
+            error: function (jqXHR, exception) {
+                var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                    alert(msg);
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                    alert(msg);
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                    alert(msg);
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                    alert(msg);
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                    alert(msg);
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                    alert(msg);
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                    alert(msg);
+                }
+            }
+        });
+    }
 
 });
