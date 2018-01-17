@@ -45,7 +45,7 @@ class onMenjarController extends Controller
           ->with('horaris', $horaris)
           ->with('dies', $dies)
           ->with('execucions', $execucions)
-          ->with('mitjana', $mitjana)
+          ->with('mitjana', round($mitjana, 2))
           ->with('count', $count);
     }
     /** Crida el model per llistar tots els accessos

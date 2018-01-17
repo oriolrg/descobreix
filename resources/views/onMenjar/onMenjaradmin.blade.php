@@ -76,7 +76,7 @@
                               <img src="http://lavalldelord.com/appvallLord/storage/app/images/{{ $restaurant->imatgePrincipal}}" width="80px" class="img_thumbnail">
                             </td>
                             <td class="matricula">
-                            {{$restaurant->countVisitaRestaurant}}  Visites
+                            {{$restaurant->countVisitaRestaurant}} 
                             </td>
                         </tr>
                     @endforeach
