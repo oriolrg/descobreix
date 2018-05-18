@@ -5,16 +5,16 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-              <div class="panel-heading">Administra onMenjar</div>
+              <ul class="nav nav-tabs">
+                <li class="active" id=""><a href="/onmenjar/">onMenjar</a></li>
+                <li id=""><a href="/geolord/">GeoLord</a></li>
+              </ul>
                 <div class="panel-heading">
                   <a class="btn btn-primary" id="afegirRest">
                     <i class="glyphicon glyphicon-plus">  Afegir Restaurant  </i>
                   </a>
                   <a class="btn btn-primary" id="ocultafegirRest">
                     <i class="glyphicon glyphicon-minus">  Amaga  </i>
-                  </a>
-                  <a class="btn btn-primary" id="estadistiques" href="/appvallLord/public/onmenjar">
-                    <i class="glyphicon glyphicon-search">  Estadístiques  </i>
                   </a>
                 </div>
 

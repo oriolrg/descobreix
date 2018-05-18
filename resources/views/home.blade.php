@@ -14,7 +14,7 @@
                         </div>
                     @endif
                     <a class="btn btn-info" href="{{ url('/onmenjar/') }}"><i class="glyphicon glyphicon-cutlery">  OnMenjar  </i></a>
-
+                    <a class="btn btn-info" href="{{ url('/geolord/') }}"><i class="glyphicon glyphicon-globe">  GeoLord  </i></a>  
                 </div>
             </div>
             <!--<div class="panel panel-default">

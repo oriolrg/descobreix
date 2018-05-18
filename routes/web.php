@@ -38,6 +38,10 @@ Route::get('/onmenjar/act/{item}', 'onMenjarController@activarRestaurant')->name
 Route::get('/onmenjar/eliminar/{item}', 'onMenjarController@borrarRestaurant')->name('borrarRestaurant');
 Route::get('/onmenjar/borrar/{item}', 'onMenjarController@borrarRestaurant')->name('borrarRestaurant');
 Route::post('/onmenjar/reiniciarcontadors', 'estadistiquesController@reiniciarContadors')->name('reiniciarContadors');
+//routes vistes on GeoLord
+Route::get('/geolord', 'geoLordController@index')->name('index');
+Route::get('/geolord/addCircuit', 'geoLordController@geoLordadd')->name('geoLordadd');
+Route::post('/geolord/post', 'geoLordController@geoLordpost')->name('geoLordpost');
 //Rutes API
 Route::get('/restaurant', 'proveidorRestaurantController@proveidornoUuid')->name('proveidorRestaurantController@proveidornoUuid');
 Route::get('/restaurant/{uuid}', 'proveidorRestaurantController@proveidor')->name('proveidorRestaurantController@proveidor');
@@ -45,3 +49,5 @@ Route::get('/restaurant/diahora/{dia}/{hora}', 'proveidorRestaurantController@pr
 Route::get('/restaurant/hora/{hora}', 'proveidorRestaurantController@proveidorHora')->name('proveidorRestaurantController@proveidorHora');
 Route::get('/restaurant/dia/{dia}', 'proveidorRestaurantController@proveidorDia')->name('proveidorRestaurantController@proveidorDia');
 Route::get('/restaurant/item/{item}', 'proveidorRestaurantController@proveidorItem')->name('proveidorRestaurantController@proveidorItem');
+
+Route::get('/circuit/{lat}/{lon}', 'proveidorGeolordController@proveidorCircuit')->name('proveidorGeolordController@proveidorCircuit');
